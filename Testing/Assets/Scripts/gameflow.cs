@@ -31,13 +31,13 @@ public class gameflow : MonoBehaviour
         StartCoroutine(spawnInvisi());
     }
 
-    
+
     void Update()
     {
 
     }
 
-    IEnumerator spawnInvisi() 
+    IEnumerator spawnInvisi()
     {
 
         //explain to partnerss
@@ -48,17 +48,17 @@ public class gameflow : MonoBehaviour
 
         if (RandX == 0)
         {
-            nextTconeSpawn.x = -2.5f; 
+            nextTconeSpawn.x = -2.5f;
         }
         else if (RandX == 1)
         {
-            nextTconeSpawn.x = 0f;    
+            nextTconeSpawn.x = 0f;
         }
         else if (RandX == 2)
         {
-            nextTconeSpawn.x = 2.5f; 
+            nextTconeSpawn.x = 2.5f;
         }
-        
+
         Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
         Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
 
@@ -66,17 +66,17 @@ public class gameflow : MonoBehaviour
         RandY = Random.Range(0, 3);
         if (RandY == 0)
         {
-            nextLowbarrierSpawn.x = -2.5f; 
+            nextLowbarrierSpawn.x = -2.5f;
         }
         else if (RandY == 1)
         {
-            nextLowbarrierSpawn.x = 0f;    
+            nextLowbarrierSpawn.x = 0f;
         }
         else if (RandY == 2)
         {
-            nextLowbarrierSpawn.x = 2.5f; 
+            nextLowbarrierSpawn.x = 2.5f;
         }
-        nextLowbarrierSpawn.z= nextinvisispawn.z;
+        nextLowbarrierSpawn.z = nextinvisispawn.z;
         nextLowbarrierSpawn.y = 0.54f;
         Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
         Instantiate(Lowbarrierobj, nextLowbarrierSpawn, Lowbarrierobj.rotation);
