@@ -1,0 +1,78 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class gameflow : MonoBehaviour
+{
+    //neeche k do main path k liyai
+    public Transform tileObj;
+    private Vector3 nextTileSpawn;
+    //yahan tk main tile ka k variables hain
+
+    //ab obstacles k instantiation k liyai variables, traffic cone wala obstacle
+    public Transform doneTconeObj;
+    private Vector3 nextTconeSpawn;
+
+    public Transform Lowbarrierobj;
+    private Vector3 nextLowbarrierSpawn;
+
+    private float RandX;    //random number variable obsatcles ko spawn krnai k liyai
+    void Start()
+    {
+
+        nextTileSpawn.z = 90; //humne position di hai first new spawn ki main path k
+        StartCoroutine(spawnTile()); //issey neeche ka spawntile loop shuru hojaiga
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    IEnumerator spawnTile()
+    {
+        yield return new WaitForSeconds(3); // main path spawn krne ka wait time
+        RandX = Random.Range(0, 3); 
+
+        if (RandX == 0)
+        {
+            nextTconeSpawn.x = -2.5f; // x = -2.5
+        }
+        else if (RandX == 1)
+        {
+            nextTconeSpawn.x = 0f;    // x = 0
+        }
+        else if (RandX == 2)
+        {
+            nextTconeSpawn.x = 2.5f; // x = 2.5
+        }
+
+        nextTconeSpawn.z = nextTileSpawn.z; // Set the same Z position as the main path
+        Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+        Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
+        
+        nextTileSpawn.z += 30; // 30 units sai agai spawn hoga main path ka tile, then so on and so on
+        nextLowbarrierSpawn.z = nextTileSpawn.z;
+
+        RandX = Random.Range(0, 3);
+
+        if (RandX == 0)
+        {
+            nextLowbarrierSpawn.x = -2.5f; // x = -2.5
+        }
+        else if (RandX == 1)
+        {
+            nextLowbarrierSpawn.x = 0f;    // x = 0
+        }
+        else if (RandX == 2)
+        {
+            nextLowbarrierSpawn.x = 2.5f; // x = 2.5
+        }
+        nextLowbarrierSpawn.y = 0.54f;
+        Instantiate(Lowbarrierobj, nextLowbarrierSpawn, Lowbarrierobj.rotation);
+        Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+        nextTileSpawn.z += 30;
+        StartCoroutine(spawnTile()); // infinite loop k liyai
+
+    }
+}
