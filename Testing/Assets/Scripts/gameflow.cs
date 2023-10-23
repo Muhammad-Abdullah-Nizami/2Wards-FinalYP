@@ -9,6 +9,8 @@ public class gameflow : MonoBehaviour
     private Vector3 nextTileSpawn;
     //yahan tk main tile ka k variables hain
 
+    public Transform secondPath;
+
     public Transform invisiObj;
     private Vector3 nextinvisispawn;
 
@@ -18,6 +20,9 @@ public class gameflow : MonoBehaviour
 
     public Transform Lowbarrierobj;
     private Vector3 nextLowbarrierSpawn;
+
+    public int spawnCount = 0; 
+    private bool spawnRoad1 = true;
 
     private float RandX;    //random number variable obsatcles ko spawn krnai k liyai
     private float RandY;    //random number variable obsatcles ko spawn krnai k liyai
@@ -87,10 +92,37 @@ public class gameflow : MonoBehaviour
     }
     IEnumerator spawnTile()
     {
-        yield return new WaitForSeconds(6); // main path spawn krne ka wait time
-        Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
-        nextTileSpawn.z += 30;
-        StartCoroutine(spawnTile()); // infinite loop k liyai
+        //yield return new WaitForSeconds(6); // main path spawn krne ka wait time
+        //Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+        //nextTileSpawn.z += 30;
+        //StartCoroutine(spawnTile()); // infinite loop k liyai
+
+        while (spawnCount < 10) // We want to spawn a total of 10 times (5 road1 + 5 road2)
+        {
+            if (spawnRoad1)
+            {
+                Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+            }
+            else
+            {
+                Instantiate(secondPath, nextTileSpawn, secondPath.rotation);
+            }
+
+            nextTileSpawn.z += 30;
+            spawnCount++;
+
+            if (spawnCount % 5 == 0)
+            {
+                // After every 5 spawns, switch to the other road type
+                spawnRoad1 = !spawnRoad1;
+            }
+            if (spawnCount >=10)
+            {
+                spawnCount = 0;
+            }
+
+            yield return new WaitForSeconds(6f);
+        }
 
     }
 }
