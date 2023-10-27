@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.004031913, g: 0.0002201784, b: 0.00000005402499, a: 1}
+  m_IndirectSpecularColor: {r: 0.0040335828, g: 0.00022028355, b: 0.00000005419162, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9993,13 +9993,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7339867, y: -0.1682496, z: 0.19667098, w: 0.6279142}
+  m_LocalRotation: {x: -0.7348379, y: -0.16908558, z: 0.20467202, w: 0.6241256}
   m_LocalPosition: {x: -1.1, y: 5.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -58.824, y: -105.012, z: -1332.597}
+  m_LocalEulerAnglesHint: {x: -58, y: -105, z: -1332}
 --- !u!95 &705507996
 Animator:
   serializedVersion: 5
@@ -10360,6 +10360,7 @@ MonoBehaviour:
   invisiObj: {fileID: 2815767235825213107, guid: 839415f0a0ae5a640bf5326af8dbf1a7, type: 3}
   doneTconeObj: {fileID: 6044200478052469659, guid: 9f5c2b25fb864ad4b8c81970e158e124, type: 3}
   Lowbarrierobj: {fileID: 8031312552666962379, guid: bf88dc7f0c9d00741af49bb213083361, type: 3}
+  thirdObstacleObj: {fileID: 1561547054350069596, guid: e428a23664611874b909a32c77a0555f, type: 3}
   spawnCount: 3
 --- !u!4 &1703708104
 Transform:

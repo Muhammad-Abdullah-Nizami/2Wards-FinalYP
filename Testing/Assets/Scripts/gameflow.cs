@@ -21,6 +21,8 @@ public class gameflow : MonoBehaviour
     public Transform Lowbarrierobj;
     private Vector3 nextLowbarrierSpawn;
 
+    public Transform thirdObstacleObj;
+
     public int spawnCount = 0; 
     private bool spawnRoad1 = true;
 
@@ -42,54 +44,97 @@ public class gameflow : MonoBehaviour
 
     }
 
+    // new spawnInvisi function. Made it BETTER, STRONGER, FASTTTER, and with one more obstacle :D
     IEnumerator spawnInvisi()
     {
-
-        //explain to partnerss
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         nextTconeSpawn = nextinvisispawn;
 
-        RandX = Random.Range(0, 3);
+        //trying to get objects to spawn at different z locaion of the invisiObj
+        
 
-        if (RandX == 0)
-        {
-            nextTconeSpawn.x = -2.5f;
-        }
-        else if (RandX == 1)
-        {
-            nextTconeSpawn.x = 0f;
-        }
-        else if (RandX == 2)
-        {
-            nextTconeSpawn.x = 2.5f;
-        }
+        float invisiObjLength = 6.0f;
+        float randZ = Random.Range(0f, invisiObjLength);
+        nextTconeSpawn.z = nextinvisispawn.z + randZ;
+
+
+        float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
+        float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
+        nextTconeSpawn.x = randX;
 
         Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
-        Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
 
-        nextinvisispawn.z += 6;
-        RandY = Random.Range(0, 3);
-        if (RandY == 0)
+        int randObstacle = Random.Range(0, 3);
+
+        if (randObstacle == 0)
         {
-            nextLowbarrierSpawn.x = -2.5f;
+            Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
         }
-        else if (RandY == 1)
+        else if (randObstacle == 1)
         {
-            nextLowbarrierSpawn.x = 0f;
+            nextTconeSpawn.y = 0.54f;
+            Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
         }
-        else if (RandY == 2)
+        else if (randObstacle == 2)
         {
-            nextLowbarrierSpawn.x = 2.5f;
+            nextTconeSpawn.y = 0.7f;
+            Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
         }
-        nextLowbarrierSpawn.z = nextinvisispawn.z;
-        nextLowbarrierSpawn.y = 0.54f;
-        Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
-        Instantiate(Lowbarrierobj, nextLowbarrierSpawn, Lowbarrierobj.rotation);
+
         nextinvisispawn.z += 6;
         StartCoroutine(spawnInvisi());
-
-
     }
+
+    //original spawnInvisi function below
+
+    //IEnumerator spawnInvisi()
+    //{
+
+    //    //explain to partnerss
+    //    yield return new WaitForSeconds(2);
+    //    nextTconeSpawn = nextinvisispawn;
+
+    //    RandX = Random.Range(0, 3);
+
+    //    if (RandX == 0)
+    //    {
+    //        nextTconeSpawn.x = -2.5f;
+    //    }
+    //    else if (RandX == 1)
+    //    {
+    //        nextTconeSpawn.x = 0f;
+    //    }
+    //    else if (RandX == 2)
+    //    {
+    //        nextTconeSpawn.x = 2.5f;
+    //    }
+
+    //    Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
+    //    Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
+
+    //    nextinvisispawn.z += 6;
+    //    RandY = Random.Range(0, 3);
+    //    if (RandY == 0)
+    //    {
+    //        nextLowbarrierSpawn.x = -2.5f;
+    //    }
+    //    else if (RandY == 1)
+    //    {
+    //        nextLowbarrierSpawn.x = 0f;
+    //    }
+    //    else if (RandY == 2)
+    //    {
+    //        nextLowbarrierSpawn.x = 2.5f;
+    //    }
+    //    nextLowbarrierSpawn.z = nextinvisispawn.z;
+    //    nextLowbarrierSpawn.y = 0.54f;
+    //    Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
+    //    Instantiate(Lowbarrierobj, nextLowbarrierSpawn, Lowbarrierobj.rotation);
+    //    nextinvisispawn.z += 6;
+    //    StartCoroutine(spawnInvisi());
+
+
+    //}
     IEnumerator spawnTile()
     {
         //yield return new WaitForSeconds(6); // main path spawn krne ka wait time
