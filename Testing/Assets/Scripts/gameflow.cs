@@ -19,14 +19,20 @@ public class gameflow : MonoBehaviour
     private Vector3 nextTconeSpawn;
 
     public Transform Lowbarrierobj;
-    private Vector3 nextLowbarrierSpawn;
+    
 
     public Transform thirdObstacleObj;
 
-    public int spawnCount = 0; 
+    //adding new obstacles 
+    public Transform leftsign;
+    public Transform rightsign;
+    public Transform targetsign;   
+
+    public int spawnCount = 3;
     private bool spawnRoad1 = true;
 
     private bool isNight = true;
+    public float invisiObjLength = 6.0f;
 
     //changes for ayman
 
@@ -36,12 +42,16 @@ public class gameflow : MonoBehaviour
         nextTileSpawn.z = 90; //humne position di hai first new spawn ki main path k
         nextinvisispawn.z = 18;
         StartCoroutine(spawnTile()); //issey neeche ka spawntile loop shuru hojaiga
-        StartCoroutine(spawnInvisi());
+        //StartCoroutine(spawnInvisi());
+        //trying the ew method
+        StartCoroutine(decide());
+
     }
 
 
     void Update()
     {
+        
         //this all was just for testing if it works, it does.
         //if (isNight)
         //{
@@ -63,7 +73,7 @@ public class gameflow : MonoBehaviour
         //trying to get objects to spawn at different z locaion of the invisiObj
         
 
-        float invisiObjLength = 6.0f;
+        
         float randZ = Random.Range(0f, invisiObjLength);
         nextTconeSpawn.z = nextinvisispawn.z + randZ;
 
@@ -94,6 +104,47 @@ public class gameflow : MonoBehaviour
 
         nextinvisispawn.z += 6;
         StartCoroutine(spawnInvisi());
+    }
+
+    IEnumerator NextspawnInvisi()
+    {
+        yield return new WaitForSeconds(1);
+        nextTconeSpawn = nextinvisispawn;
+
+        //trying to get objects to spawn at different z locaion of the invisiObj
+        
+
+        float invisiObjLength = 6.0f;
+        float randZ = Random.Range(0f, invisiObjLength);
+        nextTconeSpawn.z = nextinvisispawn.z + randZ;
+
+
+        float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
+        float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
+        nextTconeSpawn.x = randX;
+
+        Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
+
+        int randObstacle = Random.Range(0, 3);
+
+        if (randObstacle == 0)
+        {
+            nextTconeSpawn.y = 1.2f;
+            Instantiate(leftsign, nextTconeSpawn, doneTconeObj.rotation);
+        }
+        else if (randObstacle == 1)
+        {
+            nextTconeSpawn.y = 1.2f;
+            Instantiate(rightsign, nextTconeSpawn, Lowbarrierobj.rotation);
+        }
+        else if (randObstacle == 2)
+        {
+            
+            Instantiate(targetsign, nextTconeSpawn, thirdObstacleObj.rotation);
+        }
+
+        nextinvisispawn.z += 6;
+        StartCoroutine(NextspawnInvisi());
     }
 
     //original spawnInvisi function below
@@ -158,6 +209,7 @@ public class gameflow : MonoBehaviour
             if (spawnRoad1)
             {
                 Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+                
             }
             else
             {
@@ -183,11 +235,40 @@ public class gameflow : MonoBehaviour
 
     }
 
-    public void decide()
-    {
-        if (isNight )
-        {
+    //IEnumerator decide()
+    //{
+    //    if (nextinvisispawn.z <= 150)
+    //    {
+    //        StartCoroutine(spawnInvisi());
+    //        Debug.Log("abhi day k karo");
+    //    }
+    //    else 
+    //    {
+    //        StartCoroutine(NextspawnInvisi());
+    //        Debug.Log("abhi night k karo");
 
+    //    }
+
+    //    yield return new WaitForSeconds(1);
+    //}
+
+    IEnumerator decide()
+    {
+        while (true)
+        {
+            if (nextinvisispawn.z <= 150)
+            {
+                StartCoroutine(spawnInvisi());
+                Debug.Log("abhi day k karo");
+            }
+            else
+            {
+                StartCoroutine(NextspawnInvisi());
+                Debug.Log("abhi night k karo");
+            }
+
+            yield return new WaitForSeconds(1);
         }
     }
+
 }
