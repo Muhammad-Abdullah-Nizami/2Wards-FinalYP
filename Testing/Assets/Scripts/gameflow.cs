@@ -78,16 +78,17 @@ public class gameflow : MonoBehaviour
 
         if (randObstacle == 0)
         {
+            nextTconeSpawn.y = 1.2f;
             Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
         }
         else if (randObstacle == 1)
         {
-            nextTconeSpawn.y = 0.54f;
+            nextTconeSpawn.y = 1.2f;
             Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
         }
         else if (randObstacle == 2)
         {
-            nextTconeSpawn.y = 0.7f;
+            
             Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
         }
 
@@ -180,5 +181,13 @@ public class gameflow : MonoBehaviour
             yield return new WaitForSeconds(6f);
         }
 
+    }
+
+    public void decide()
+    {
+        if (isNight )
+        {
+
+        }
     }
 }
