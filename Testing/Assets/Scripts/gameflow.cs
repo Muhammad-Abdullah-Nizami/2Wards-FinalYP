@@ -26,8 +26,7 @@ public class gameflow : MonoBehaviour
     public int spawnCount = 0; 
     private bool spawnRoad1 = true;
 
-    private float RandX;    //random number variable obsatcles ko spawn krnai k liyai
-    private float RandY;    //random number variable obsatcles ko spawn krnai k liyai
+    private bool isNight = true;
 
     void Start()
     {
@@ -41,7 +40,16 @@ public class gameflow : MonoBehaviour
 
     void Update()
     {
+        //this all was just for testing if it works, it does.
+        //if (isNight)
+        //{
+        //    Debug.Log("IsNight");
+        //}
 
+        //else
+        //{
+        //    Debug.Log("is day");
+        //}
     }
 
     // new spawnInvisi function. Made it BETTER, STRONGER, FASTTTER, and with one more obstacle :D
@@ -160,6 +168,7 @@ public class gameflow : MonoBehaviour
             {
                 // After every 5 spawns, switch to the other road type
                 spawnRoad1 = !spawnRoad1;
+                isNight = !isNight; //added for use later i guess
             }
             if (spawnCount >=10)
             {
