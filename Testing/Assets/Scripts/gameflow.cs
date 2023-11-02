@@ -11,7 +11,7 @@ public class gameflow : MonoBehaviour
 
     public Transform secondPath;
 
-    public Transform invisiObj;
+    //public Transform invisiObj;
     private Vector3 nextinvisispawn;
 
     //ab obstacles k instantiation k liyai variables, traffic cone wala obstacle
@@ -269,6 +269,9 @@ public class gameflow : MonoBehaviour
 
         float randZ = Random.Range(-10f, 10);
         nextTconeSpawn.z = nextTconeSpawn.z + randZ;
+
+        //NOTE FOR AYMAN, ADD RANDOM ARRAY FILLED WITH GOOD VALUES INSTEAD OF THIS RANDOM RANGE.
+
 
         int randObstacle = Random.Range(0, 3);
 
