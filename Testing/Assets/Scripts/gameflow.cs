@@ -36,6 +36,10 @@ public class gameflow : MonoBehaviour
 
     //changes for ayman
 
+    public float zOffset = -15f;
+    public float znightOffset = -15f;
+
+
     void Start()
     {
 
@@ -44,7 +48,7 @@ public class gameflow : MonoBehaviour
         StartCoroutine(spawnTile()); //issey neeche ka spawntile loop shuru hojaiga
         //StartCoroutine(spawnInvisi());
         //trying the ew method
-        StartCoroutine(decide());
+        //StartCoroutine(decide());
 
     }
 
@@ -64,88 +68,91 @@ public class gameflow : MonoBehaviour
         //}
     }
 
+
+    //2/11/23 removed the entire concept of this spawninvisi function. Added spawnDayostacle and spawnnightobstacle instead
+    //and called them in the path instantiating fucniton of spawntile
     // new spawnInvisi function. Made it BETTER, STRONGER, FASTTTER, and with one more obstacle :D
-    IEnumerator spawnInvisi()
-    {
-        yield return new WaitForSeconds(1);
-        nextTconeSpawn = nextinvisispawn;
+    //IEnumerator spawnInvisi()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    nextTconeSpawn = nextinvisispawn;
 
-        //trying to get objects to spawn at different z locaion of the invisiObj
+    //    //trying to get objects to spawn at different z locaion of the invisiObj
         
 
         
-        float randZ = Random.Range(0f, invisiObjLength);
-        nextTconeSpawn.z = nextinvisispawn.z + randZ;
+    //    float randZ = Random.Range(0f, invisiObjLength);
+    //    nextTconeSpawn.z = nextinvisispawn.z + randZ;
 
 
-        float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
-        float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
-        nextTconeSpawn.x = randX;
+    //    float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
+    //    float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
+    //    nextTconeSpawn.x = randX;
 
-        Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
+    //    Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
 
-        int randObstacle = Random.Range(0, 3);
+    //    int randObstacle = Random.Range(0, 3);
 
-        if (randObstacle == 0)
-        {
-            nextTconeSpawn.y = 1.2f;
-            Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
-        }
-        else if (randObstacle == 1)
-        {
-            nextTconeSpawn.y = 1.2f;
-            Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
-        }
-        else if (randObstacle == 2)
-        {
+    //    if (randObstacle == 0)
+    //    {
+    //        nextTconeSpawn.y = 1.2f;
+    //        Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
+    //    }
+    //    else if (randObstacle == 1)
+    //    {
+    //        nextTconeSpawn.y = 1.2f;
+    //        Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
+    //    }
+    //    else if (randObstacle == 2)
+    //    {
             
-            Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
-        }
+    //        Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
+    //    }
 
-        nextinvisispawn.z += 6;
-        StartCoroutine(spawnInvisi());
-    }
+    //    nextinvisispawn.z += 6;
+    //    StartCoroutine(spawnInvisi());
+    //}
 
-    IEnumerator NextspawnInvisi()
-    {
-        yield return new WaitForSeconds(1);
-        nextTconeSpawn = nextinvisispawn;
+    //IEnumerator NextspawnInvisi()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    nextTconeSpawn = nextinvisispawn;
 
-        //trying to get objects to spawn at different z locaion of the invisiObj
+    //    //trying to get objects to spawn at different z locaion of the invisiObj
         
 
-        float invisiObjLength = 6.0f;
-        float randZ = Random.Range(0f, invisiObjLength);
-        nextTconeSpawn.z = nextinvisispawn.z + randZ;
+    //    float invisiObjLength = 6.0f;
+    //    float randZ = Random.Range(0f, invisiObjLength);
+    //    nextTconeSpawn.z = nextinvisispawn.z + randZ;
 
 
-        float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
-        float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
-        nextTconeSpawn.x = randX;
+    //    float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
+    //    float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
+    //    nextTconeSpawn.x = randX;
 
-        Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
+    //    Instantiate(invisiObj, nextinvisispawn, invisiObj.rotation);
 
-        int randObstacle = Random.Range(0, 3);
+    //    int randObstacle = Random.Range(0, 3);
 
-        if (randObstacle == 0)
-        {
-            nextTconeSpawn.y = 1.2f;
-            Instantiate(leftsign, nextTconeSpawn, doneTconeObj.rotation);
-        }
-        else if (randObstacle == 1)
-        {
-            nextTconeSpawn.y = 1.2f;
-            Instantiate(rightsign, nextTconeSpawn, Lowbarrierobj.rotation);
-        }
-        else if (randObstacle == 2)
-        {
+    //    if (randObstacle == 0)
+    //    {
+    //        nextTconeSpawn.y = 1.2f;
+    //        Instantiate(leftsign, nextTconeSpawn, doneTconeObj.rotation);
+    //    }
+    //    else if (randObstacle == 1)
+    //    {
+    //        nextTconeSpawn.y = 1.2f;
+    //        Instantiate(rightsign, nextTconeSpawn, Lowbarrierobj.rotation);
+    //    }
+    //    else if (randObstacle == 2)
+    //    {
             
-            Instantiate(targetsign, nextTconeSpawn, thirdObstacleObj.rotation);
-        }
+    //        Instantiate(targetsign, nextTconeSpawn, thirdObstacleObj.rotation);
+    //    }
 
-        nextinvisispawn.z += 6;
-        StartCoroutine(NextspawnInvisi());
-    }
+    //    nextinvisispawn.z += 6;
+    //    StartCoroutine(NextspawnInvisi());
+    //}
 
     //original spawnInvisi function below
 
@@ -209,11 +216,28 @@ public class gameflow : MonoBehaviour
             if (spawnRoad1)
             {
                 Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
-                
+
+                for (int i = 0; i < 4; i++)
+                {
+                    spawnnightObstacle();
+                }
+
+                zOffset = -15f;
+
             }
             else
             {
+                
                 Instantiate(secondPath, nextTileSpawn, secondPath.rotation);
+                
+                for (int i = 0; i < 4; i++)
+                {
+                    spawndayObstacle();
+                }
+
+                zOffset = -15f;
+
+
             }
 
             nextTileSpawn.z += 30;
@@ -235,6 +259,72 @@ public class gameflow : MonoBehaviour
 
     }
 
+
+    void spawndayObstacle()
+    {
+        nextTconeSpawn = nextTileSpawn;
+        float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
+        float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
+        nextTconeSpawn.x = randX;
+
+        float randZ = Random.Range(-10f, 10);
+        nextTconeSpawn.z = nextTconeSpawn.z + randZ;
+
+        int randObstacle = Random.Range(0, 3);
+
+        if (randObstacle == 0)
+        {
+            nextTconeSpawn.y = 1.2f;
+            Instantiate(leftsign, nextTconeSpawn, leftsign.rotation);
+        }
+        else if (randObstacle == 1)
+        {
+            nextTconeSpawn.y = 1.2f;
+            Instantiate(rightsign, nextTconeSpawn, rightsign.rotation);
+        }
+        else if (randObstacle == 2)
+        {
+
+            Instantiate(targetsign, nextTconeSpawn, targetsign.rotation);
+        }
+
+        zOffset += Random.Range(5f, 8f);
+
+    }
+
+
+    void spawnnightObstacle()
+    {
+        nextTconeSpawn = nextTileSpawn;
+        float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
+        float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
+        nextTconeSpawn.x = randX;
+
+        float randZ = Random.Range(-10f, 10);
+        nextTconeSpawn.z = nextTconeSpawn.z + randZ;
+
+        int randObstacle = Random.Range(0, 3);
+
+        if (randObstacle == 0)
+        {
+            nextTconeSpawn.y = 1.2f;
+            Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
+        }
+        else if (randObstacle == 1)
+        {
+            nextTconeSpawn.y = 1.2f;
+            Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
+        }
+        else if (randObstacle == 2)
+        {
+
+            Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
+        }
+
+        znightOffset += Random.Range(5f, 8f);
+
+    }
+
     //IEnumerator decide()
     //{
     //    if (nextinvisispawn.z <= 150)
@@ -252,23 +342,23 @@ public class gameflow : MonoBehaviour
     //    yield return new WaitForSeconds(1);
     //}
 
-    IEnumerator decide()
-    {
-        while (true)
-        {
-            if (nextinvisispawn.z <= 150)
-            {
-                StartCoroutine(spawnInvisi());
-                Debug.Log("abhi day k karo");
-            }
-            else
-            {
-                StartCoroutine(NextspawnInvisi());
-                Debug.Log("abhi night k karo");
-            }
+    //IEnumerator decide()
+    //{
+    //    while (true)
+    //    {
+    //        if (nextinvisispawn.z <= 150)
+    //        {
+    //            StartCoroutine(spawnInvisi());
+    //            Debug.Log("abhi day k karo");
+    //        }
+    //        else
+    //        {
+    //            StartCoroutine(NextspawnInvisi());
+    //            Debug.Log("abhi night k karo");
+    //        }
 
-            yield return new WaitForSeconds(1);
-        }
-    }
+    //        yield return new WaitForSeconds(1);
+    //    }
+    //}
 
 }

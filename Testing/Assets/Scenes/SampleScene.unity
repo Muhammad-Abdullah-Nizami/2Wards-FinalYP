@@ -10363,9 +10363,10 @@ MonoBehaviour:
   thirdObstacleObj: {fileID: 1561547054350069596, guid: e428a23664611874b909a32c77a0555f, type: 3}
   leftsign: {fileID: 7923825086504299395, guid: 307a75ab8a90e5d4c8dfd9809ca0e66d, type: 3}
   rightsign: {fileID: 4780260621154302199, guid: d73b10df2e4ef6a40b1618a365854f3d, type: 3}
-  targetsign: {fileID: 3325267777777816844, guid: 88ca4280ce764884e842e9ccfb8f22cf, type: 3}
+  targetsign: {fileID: 8928144702152229115, guid: d66be6d3ffa6cad4f8036f1a13e7ed01, type: 3}
   spawnCount: 3
   invisiObjLength: 6
+  zOffset: -10
 --- !u!4 &1703708104
 Transform:
   m_ObjectHideFlags: 0
