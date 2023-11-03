@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class gameflow : MonoBehaviour
@@ -34,8 +35,7 @@ public class gameflow : MonoBehaviour
 
     //changes for ayman
 
-    public float zOffset = -15f;
-    public float znightOffset = -15f;
+    List<float> usedZPositions = new List<float>();
 
 
     void Start()
@@ -220,7 +220,7 @@ public class gameflow : MonoBehaviour
                     spawnnightObstacle();
                 }
 
-                zOffset = -15f;
+                
 
             }
             else
@@ -233,7 +233,7 @@ public class gameflow : MonoBehaviour
                     spawndayObstacle();
                 }
 
-                zOffset = -15f;
+                
 
 
             }
@@ -265,7 +265,23 @@ public class gameflow : MonoBehaviour
         float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
         nextTconeSpawn.x = randX;
 
-        float randZ = Random.Range(-10f, 10);
+        float[] possibleZValues = new float[] { -10f,-6.5f, -5f, 3f, 0f, 5f, 6.5f, 10f, -15f, 15f};
+        float[] availableZValues = possibleZValues.Except(usedZPositions).ToArray();
+
+        // Check if there are any available z positions left.
+        if (availableZValues.Length == 0)
+        {
+            // All z positions have been used.
+            usedZPositions.Clear();
+            availableZValues = possibleZValues; // Use all possible z values again.
+        }
+
+        float randZ = availableZValues[Random.Range(0, availableZValues.Length)];
+
+        // Add the newly used z position to the list.
+        usedZPositions.Add(randZ);
+
+        //float randZ = Random.Range(-10f, 10);
         nextTconeSpawn.z = nextTconeSpawn.z + randZ;
 
         //NOTE FOR AYMAN, ADD RANDOM ARRAY FILLED WITH GOOD VALUES INSTEAD OF THIS RANDOM RANGE.
@@ -289,7 +305,7 @@ public class gameflow : MonoBehaviour
             Instantiate(targetsign, nextTconeSpawn, targetsign.rotation);
         }
 
-        zOffset += Random.Range(5f, 8f);
+        
 
     }
 
@@ -301,7 +317,23 @@ public class gameflow : MonoBehaviour
         float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
         nextTconeSpawn.x = randX;
 
-        float randZ = Random.Range(-10f, 10);
+
+        float[] possibleZValues = new float[] { -10f, -6.5f, -5f, 3f, 0f, 5f, 6.5f, 10f, -15f, 15f };
+        float[] availableZValues = possibleZValues.Except(usedZPositions).ToArray();
+
+        // Check if there are any available z positions left.
+        if (availableZValues.Length == 0)
+        {
+            // All z positions have been used.
+            usedZPositions.Clear();
+            availableZValues = possibleZValues; // Use all possible z values again.
+        }
+
+        float randZ = availableZValues[Random.Range(0, availableZValues.Length)];
+
+        // Add the newly used z position to the list.
+        usedZPositions.Add(randZ);
+
         nextTconeSpawn.z = nextTconeSpawn.z + randZ;
 
         int randObstacle = Random.Range(0, 3);
@@ -322,7 +354,7 @@ public class gameflow : MonoBehaviour
             Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
         }
 
-        znightOffset += Random.Range(5f, 8f);
+        
 
     }
 

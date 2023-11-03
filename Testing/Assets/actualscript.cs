@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class actualscript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float moveSpeed = 5.0f;
     void Start()
     {
         GetComponent<Animator>().Play("sprint");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        transform.position += Vector3.forward * moveSpeed * Time.fixedDeltaTime;
     }
 }
