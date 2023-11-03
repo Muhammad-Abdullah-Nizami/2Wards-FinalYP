@@ -11,8 +11,6 @@ public class gameflow : MonoBehaviour
 
     public Transform secondPath;
 
-    //public Transform invisiObj;
-    private Vector3 nextinvisispawn;
 
     //ab obstacles k instantiation k liyai variables, traffic cone wala obstacle
     public Transform doneTconeObj;
@@ -44,7 +42,7 @@ public class gameflow : MonoBehaviour
     {
 
         nextTileSpawn.z = 90; //humne position di hai first new spawn ki main path k
-        nextinvisispawn.z = 18;
+        
         StartCoroutine(spawnTile()); //issey neeche ka spawntile loop shuru hojaiga
         //StartCoroutine(spawnInvisi());
         //trying the ew method
