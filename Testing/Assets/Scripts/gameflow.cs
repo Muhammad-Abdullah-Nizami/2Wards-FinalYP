@@ -252,7 +252,7 @@ public class gameflow : MonoBehaviour
                 spawnCount = 0;
             }
 
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(4f);
         }
 
     }
@@ -340,17 +340,17 @@ public class gameflow : MonoBehaviour
 
         if (randObstacle == 0)
         {
-            nextTconeSpawn.y = 1.2f;
+            nextTconeSpawn.y = 0.27f;
             Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
         }
         else if (randObstacle == 1)
         {
-            nextTconeSpawn.y = 1.2f;
+            nextTconeSpawn.y = 0.53f;
             Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
         }
         else if (randObstacle == 2)
         {
-
+            nextTconeSpawn.y = 0.63f;
             Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
         }
 
