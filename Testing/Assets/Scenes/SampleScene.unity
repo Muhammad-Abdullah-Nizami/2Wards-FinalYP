@@ -10384,7 +10384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0bdda3b0d173d42bf798e2e26954d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 0
 --- !u!1001 &1538273115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10473,7 +10473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileObj: {fileID: 8116328491628457431, guid: 4b5cd85913cd9314880918a4df1f0ea9, type: 3}
   secondPath: {fileID: 1797901991458704953, guid: ef3e7e0c07e545641bd511ac3705607d, type: 3}
-  doneTconeObj: {fileID: 6157505821663697575, guid: b75b1559f68e69b49856f5083e451028, type: 3}
+  doneTconeObj: {fileID: 6044200478052469659, guid: 9f5c2b25fb864ad4b8c81970e158e124, type: 3}
   Lowbarrierobj: {fileID: 8031312552666962379, guid: bf88dc7f0c9d00741af49bb213083361, type: 3}
   thirdObstacleObj: {fileID: 1561547054350069596, guid: e428a23664611874b909a32c77a0555f, type: 3}
   leftsign: {fileID: 7923825086504299395, guid: 307a75ab8a90e5d4c8dfd9809ca0e66d, type: 3}
