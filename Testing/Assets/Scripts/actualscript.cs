@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class actualscript : MonoBehaviour
 {
-    public float xSpeed = 10f;
+    public float xSpeed = 8f;
     private float xMovement;
 
     private bool aKeyPressed = false;
@@ -26,6 +26,7 @@ public class actualscript : MonoBehaviour
     {
         inputhandling();
         Move();
+        theanimator.SetTrigger("sprint");
     }
 
     void Move()
@@ -37,6 +38,8 @@ public class actualscript : MonoBehaviour
     {
         if (Input.GetKeyDown("d") && !dKeyPressed)
         {
+            
+
             dKeyPressed = true;
             theanimator.SetTrigger("rightstep");
 
@@ -55,10 +58,13 @@ public class actualscript : MonoBehaviour
         if (Input.GetKeyUp("d"))
         {
             dKeyPressed = false;
+            theanimator.SetTrigger("sprint");
+
         }
 
         if (Input.GetKeyDown("a") && !aKeyPressed)
         {
+            
             aKeyPressed = true;
             theanimator.SetTrigger("leftstep");
             if (xMovement == 0)
@@ -79,6 +85,8 @@ public class actualscript : MonoBehaviour
         if (Input.GetKeyUp("a"))
         {
             aKeyPressed = false;
+            theanimator.SetTrigger("sprint");
+
         }
 
     }

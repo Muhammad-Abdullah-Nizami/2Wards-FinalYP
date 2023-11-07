@@ -9998,7 +9998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceeb60955f3ea354d83c8574d8ea89e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
 --- !u!95 &383475893
 Animator:
   serializedVersion: 5
@@ -10190,11 +10190,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e70a1f0fd20bcf428d08f0a272d7b08, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 6e70a1f0fd20bcf428d08f0a272d7b08, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 6e70a1f0fd20bcf428d08f0a272d7b08, type: 3}
       propertyPath: m_Controller
@@ -10285,7 +10285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fd1367735d8a14648836cba39242d96a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10314,7 +10314,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907857942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5cc7df78f78265c4688af805feaca417, type: 2}
   m_CullingMode: 0
@@ -10334,7 +10334,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907857942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5c9adfe28a234044a9f9251d61d728f, type: 3}
   m_Name: 
@@ -10737,7 +10737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707236834}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5c9adfe28a234044a9f9251d61d728f, type: 3}
   m_Name: 
@@ -10769,7 +10769,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!1001 &1991627202
 PrefabInstance:

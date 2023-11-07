@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rightstep
-  m_Speed: 1
+  m_Speed: 1.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5477400756718229316}
@@ -44,9 +44,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.32299694
-  m_TransitionOffset: 0
-  m_ExitTime: 0.87997806
+  m_TransitionDuration: 0.32799703
+  m_TransitionOffset: 0.059499968
+  m_ExitTime: 1.0307592
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -94,9 +94,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.659091
+  m_TransitionDuration: 0.103333205
+  m_TransitionOffset: 0.27500004
+  m_ExitTime: 0.9990911
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -206,7 +206,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: leftstep
-  m_Speed: 1.8
+  m_Speed: 1.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1436198363789981909}
@@ -242,9 +242,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.70000005
+  m_TransitionDuration: 0.099999964
+  m_TransitionOffset: 0.28125006
+  m_ExitTime: 0.97
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
