@@ -9,10 +9,11 @@ public class actualscript : MonoBehaviour
 
     private bool aKeyPressed = false;
     private bool dKeyPressed = false;
+    public Animator theanimator;
 
     void Start()
     {
-        GetComponent<Animator>().Play("sprint");
+        //GetComponent<Animator>().Play("sprint");
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 6);
     }
 
@@ -37,6 +38,8 @@ public class actualscript : MonoBehaviour
         if (Input.GetKeyDown("d") && !dKeyPressed)
         {
             dKeyPressed = true;
+            theanimator.SetTrigger("rightstep");
+
             if (xMovement == 0)
             {
                 xMovement = 2.5f;
@@ -45,6 +48,8 @@ public class actualscript : MonoBehaviour
             {
                 xMovement = 0f;
             }
+            theanimator.SetTrigger("sprint");
+
         }
 
         if (Input.GetKeyUp("d"))
@@ -55,14 +60,20 @@ public class actualscript : MonoBehaviour
         if (Input.GetKeyDown("a") && !aKeyPressed)
         {
             aKeyPressed = true;
+            theanimator.SetTrigger("leftstep");
             if (xMovement == 0)
             {
                 xMovement = -2.5f;
+                
+
             }
             else if (xMovement == 2.5f)
             {
                 xMovement = 0f;
+                
+
             }
+            theanimator.SetTrigger("sprint");
         }
 
         if (Input.GetKeyUp("a"))
