@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class rainmove : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 6.0f;
+    
 
     private void FixedUpdate()
     {
