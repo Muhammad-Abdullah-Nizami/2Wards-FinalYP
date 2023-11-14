@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class mainmenu : MonoBehaviour
 {
     //ayman
-    //creating scriptfor ui  
+    //creating scriptfor ui   
     public void playgame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
