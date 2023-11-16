@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class actualscript : MonoBehaviour
@@ -131,7 +132,25 @@ public class actualscript : MonoBehaviour
         }
 
     }
+<<<<<<< Updated upstream
     
 
 
+=======
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            Debug.Log("Collision!");
+            Invoke("Loadgameover", 1f);
+
+        }
+    }
+    void Loadgameover()
+    {
+        SceneManager.LoadScene("game over");
+        _velocity = new Vector3(0, 0, 0);
+    }
+>>>>>>> Stashed changes
 }
