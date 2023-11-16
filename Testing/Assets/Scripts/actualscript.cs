@@ -135,11 +135,11 @@ public class actualscript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.CompareTag("obstacle"))
-        //{
-        Debug.Log("Collision!");
-        Invoke("Loadgameover", 1f);
-        //}
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            Debug.Log("Collision!");
+            Invoke("Loadgameover", 1f);
+        }
     }
     void Loadgameover()
     {
