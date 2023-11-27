@@ -9,7 +9,8 @@ public class mainmenu : MonoBehaviour
     //creating scriptfor ui   
     public void playgame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Invoke("Loadgame", 0.1f);
+
     }
 
     public void Quitgame()
@@ -21,6 +22,11 @@ public class mainmenu : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    void Loadgame()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

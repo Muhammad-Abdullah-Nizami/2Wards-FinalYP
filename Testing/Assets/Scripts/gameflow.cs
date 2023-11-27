@@ -291,17 +291,17 @@ public class gameflow : MonoBehaviour
 
         if (randObstacle == 0)
         {
-            nextTconeSpawn.y = 1.2f;
+            nextTconeSpawn.y = 0.27f;
             Instantiate(leftsign, nextTconeSpawn, leftsign.rotation);
         }
         else if (randObstacle == 1)
         {
-            nextTconeSpawn.y = 1.2f;
+            nextTconeSpawn.y = 0.53f;
             Instantiate(rightsign, nextTconeSpawn, rightsign.rotation);
         }
         else if (randObstacle == 2)
         {
-
+            nextTconeSpawn.y = 0.53f;
             Instantiate(targetsign, nextTconeSpawn, targetsign.rotation);
         }
 

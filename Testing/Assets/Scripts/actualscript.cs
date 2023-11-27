@@ -21,7 +21,7 @@ public class actualscript : MonoBehaviour
 
     void Start()
     {
-        _velocity = new Vector3 (0,0, 6);
+        _velocity = new Vector3 (0,0, 8);
     }
 
     void Update()
@@ -42,6 +42,7 @@ public class actualscript : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(xMovement, transform.position.y, transform.position.z), Time.deltaTime * xSpeed);
     }
+
 
     void jump()
     {
@@ -73,6 +74,52 @@ public class actualscript : MonoBehaviour
         }
 
         return false;
+    }
+
+    void IsObstacleInFront()
+    {
+        float rayLength = 10.0f; 
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+        {
+            // Check if the hit object has the "obstacle" tag
+            if (hit.collider.CompareTag("obstacle"))
+            {
+                //return true; // Obstacle found
+                Destroy(hit.collider.gameObject);
+            }
+
+        }
+
+        //return false; // No obstacle found
+    }
+
+    void IsObstacleMoveable()
+    {
+        float rayLength = 10.0f;
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+        {
+            if (hit.collider.CompareTag("moveleftobstacle"))
+            {
+                MoveObstacle(hit, -2.5f);
+            }
+
+        }
+    }
+
+    void MoveObstacle(RaycastHit hit, float moveAmount)
+    {
+        // Get the obstacle's current position
+        Vector3 obstaclePosition = hit.collider.transform.position;
+
+        // Calculate the new position based on the movement amount
+        Vector3 newPosition = new Vector3(obstaclePosition.x + moveAmount, obstaclePosition.y, obstaclePosition.z);
+
+        // Move the obstacle to the new position
+        hit.collider.transform.position = newPosition;
     }
 
     void inputhandling()
@@ -131,13 +178,25 @@ public class actualscript : MonoBehaviour
 
         }
 
+        if (Input.GetButtonDown("f"))
+        {
+            IsObstacleInFront();
+        }
+
+        if (Input.GetButtonDown("e"))
+        {
+            IsObstacleMoveable();
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("obstacle"))
+        if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))
         {
             Debug.Log("Collision!");
+            _velocity = new Vector3(0, 0, 0);
+            //theanimator.SetTrigger("rightstep");
             Invoke("Loadgameover", 1f);
         }
     }

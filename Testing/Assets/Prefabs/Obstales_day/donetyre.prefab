@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5516687820547957359}
   m_Layer: 0
   m_Name: donetyre
-  m_TagString: obstacle
+  m_TagString: moveleftobstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7400234180526153331}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: -0.49999997, w: -0.49999994}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.010591075, y: 0.7157299, z: 0.004175406}
   m_LocalScale: {x: 355.96558, y: 355.96558, z: 598.7712}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!33 &3718524243178577566
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6133712870518801159, guid: d28875e08314c06459275c3351a67c36, type: 3}
+  - {fileID: 2100000, guid: 2c470e8e33123a84ca71a51d0afbaf5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

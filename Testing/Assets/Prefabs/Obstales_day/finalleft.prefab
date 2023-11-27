@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6108884756916165355}
   m_Layer: 0
   m_Name: finalleft
-  m_TagString: obstacle
+  m_TagString: moveleftobstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
