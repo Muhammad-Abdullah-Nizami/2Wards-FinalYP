@@ -10,8 +10,8 @@ public class actualscript : MonoBehaviour
     private float xMovement;
     public float jumpspeed = 10f;
     public float downaccel = 0.75f;
-    
-    
+
+
 
     private bool aKeyPressed = false;
     private bool dKeyPressed = false;
@@ -21,21 +21,21 @@ public class actualscript : MonoBehaviour
 
     void Start()
     {
-        _velocity = new Vector3 (0,0, 8);
+        _velocity = new Vector3(0, 0, 8);
     }
 
     void Update()
     {
-        
+
     }
-   
+
     void FixedUpdate()
     {
         inputhandling();
         Move();
         jump();
         theanimator.SetTrigger("sprint");
-        bodyrigid.velocity= _velocity;
+        bodyrigid.velocity = _velocity;
     }
 
     void Move()
@@ -46,7 +46,7 @@ public class actualscript : MonoBehaviour
 
     void jump()
     {
-        if ( IsGrounded())
+        if (IsGrounded())
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -78,7 +78,7 @@ public class actualscript : MonoBehaviour
 
     void IsObstacleInFront()
     {
-        float rayLength = 10.0f; 
+        float rayLength = 10.0f;
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
@@ -124,10 +124,10 @@ public class actualscript : MonoBehaviour
 
     void inputhandling()
     {
-        
+
         if (Input.GetKeyDown("d") && !dKeyPressed)
         {
-            
+
 
             dKeyPressed = true;
             theanimator.SetTrigger("rightstep");
@@ -153,19 +153,19 @@ public class actualscript : MonoBehaviour
 
         if (Input.GetKeyDown("a") && !aKeyPressed)
         {
-            
+
             aKeyPressed = true;
             theanimator.SetTrigger("leftstep");
             if (xMovement == 0)
             {
                 xMovement = -2.5f;
-                
+
 
             }
             else if (xMovement == 2.5f)
             {
                 xMovement = 0f;
-                
+
 
             }
             theanimator.SetTrigger("sprint");
