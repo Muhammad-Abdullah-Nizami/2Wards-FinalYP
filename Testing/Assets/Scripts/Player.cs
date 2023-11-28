@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         StartCoroutine(DecreaseHealth());
     }
 
-    void MaxHealth()
+    public void MaxHealth()
     {
         currentHealth = maxHealth;
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - obstacle
   - moveleftobstacle
+  - character
   layers:
   - Default
   - TransparentFX
