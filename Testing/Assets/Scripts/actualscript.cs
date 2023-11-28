@@ -8,7 +8,7 @@ public class actualscript : MonoBehaviour
 {
     //private Player PlayerInstance;
 
-
+    public static Vector3 astroposition;
 
     public float xSpeed = 8f;
     private float xMovement;
@@ -30,7 +30,7 @@ public class actualscript : MonoBehaviour
 
     void Update()
     {
-
+        astroposition=transform.position;
     }
 
     void FixedUpdate()
