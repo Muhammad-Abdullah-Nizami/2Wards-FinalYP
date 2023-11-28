@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2266369360831976747}
   - component: {fileID: 4296309116436179503}
   m_Layer: 0
-  m_Name: cartoon-jump-6462
+  m_Name: jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 42d0410d73b88be44864950f4481876e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

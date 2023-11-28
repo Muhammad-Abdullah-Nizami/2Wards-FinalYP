@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class actualscript : MonoBehaviour
 {
+    //private Player PlayerInstance;
+
+
+
     public float xSpeed = 8f;
     private float xMovement;
     public float jumpspeed = 10f;
@@ -190,6 +194,15 @@ public class actualscript : MonoBehaviour
 
     }
 
+    
+    //USE THIS TO TURN HEALTH BACK TO MAXIMUM ON COLLISION TRIGGER WITH YOUR OBJECT AND DESTROY THE GAMEOBJECT
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Tank"))
+    //    {
+    //        PlayerInstance.MaxHealth();
+    //    }
+    //}
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))
@@ -200,7 +213,7 @@ public class actualscript : MonoBehaviour
             Invoke("Loadgameover", 1f);
         }
     }
-    void Loadgameover()
+    public void Loadgameover()
     {
         SceneManager.LoadScene("game over");
         _velocity = new Vector3(0, 0, 0);

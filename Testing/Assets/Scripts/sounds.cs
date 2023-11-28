@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class sounds : MonoBehaviour
 {
-    public AudioSource jumpSoundPrefab; // Reference to the jump sound prefab
+    public AudioSource jumpSoundPrefab;
+    public AudioSource popSoundPrefab;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AudioSource jumpSoundInstance = Instantiate(jumpSoundPrefab); // Create a new AudioSource instance
-            jumpSoundInstance.Play(); // Play the sound effect
+            AudioSource jumpSoundInstance = Instantiate(jumpSoundPrefab); 
+            jumpSoundInstance.Play(); 
 
-            // Destroy the AudioSource after a short delay to avoid memory leaks
+            
             Destroy(jumpSoundInstance, 0.5f);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            AudioSource popSoundInstance = Instantiate(popSoundPrefab);
+            popSoundInstance.Play();
+
+
+            Destroy(popSoundInstance, 0.5f);
         }
     }
 }

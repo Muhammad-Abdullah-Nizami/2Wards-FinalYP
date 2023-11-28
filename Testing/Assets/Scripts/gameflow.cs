@@ -14,13 +14,13 @@ public class gameflow : MonoBehaviour
 
 
     //ab obstacles k instantiation k liyai variables, traffic cone wala obstacle
-    public Transform doneTconeObj;
+    public Transform firstObj
+        ;
     private Vector3 nextTconeSpawn;
 
-    public Transform Lowbarrierobj;
+    public Transform secondObj;
     
-
-    public Transform thirdObstacleObj;
+    public Transform thirdObj;
 
     //adding new obstacles 
     public Transform leftsign;
@@ -220,22 +220,17 @@ public class gameflow : MonoBehaviour
                     spawnnightObstacle();
                 }
 
-                
-
             }
             else
             {
                 
-                Instantiate(secondPath, nextTileSpawn, secondPath.rotation);
+                Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
                 
                 for (int i = 0; i < 4; i++)
                 {
-                    spawndayObstacle();
+                    //spawndayObstacle();
+                    spawnnightObstacle();
                 }
-
-                
-
-
             }
 
             nextTileSpawn.z += 30;
@@ -340,18 +335,18 @@ public class gameflow : MonoBehaviour
 
         if (randObstacle == 0)
         {
-            nextTconeSpawn.y = 0.27f;
-            Instantiate(doneTconeObj, nextTconeSpawn, doneTconeObj.rotation);
+            nextTconeSpawn.y = 0.427f;
+            Instantiate(firstObj, nextTconeSpawn, firstObj.rotation);
         }
         else if (randObstacle == 1)
         {
-            nextTconeSpawn.y = 0.53f;
-            Instantiate(Lowbarrierobj, nextTconeSpawn, Lowbarrierobj.rotation);
+            nextTconeSpawn.y = 0.04f;
+            Instantiate(secondObj, nextTconeSpawn, secondObj.rotation);
         }
         else if (randObstacle == 2)
         {
-            nextTconeSpawn.y = 0.63f;
-            Instantiate(thirdObstacleObj, nextTconeSpawn, thirdObstacleObj.rotation);
+            nextTconeSpawn.y = 0.35f;
+            Instantiate(thirdObj, nextTconeSpawn, thirdObj.rotation);
         }
 
         
