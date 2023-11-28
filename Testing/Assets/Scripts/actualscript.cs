@@ -15,6 +15,7 @@ public class actualscript : MonoBehaviour
     public float jumpspeed = 10f;
     public float downaccel = 0.75f;
 
+    public GameObject smokePrefab;
 
 
     private bool aKeyPressed = false;
@@ -87,16 +88,18 @@ public class actualscript : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
         {
-            // Check if the hit object has the "obstacle" tag
+            
             if (hit.collider.CompareTag("obstacle"))
             {
-                //return true; // Obstacle found
+                
                 Destroy(hit.collider.gameObject);
+                GameObject smoke = Instantiate(smokePrefab, hit.point, Quaternion.identity);
+
+                Destroy(smoke, 3.0f);
             }
 
         }
 
-        //return false; // No obstacle found
     }
 
     void IsObstacleMoveable()

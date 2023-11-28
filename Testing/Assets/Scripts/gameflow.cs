@@ -14,8 +14,8 @@ public class gameflow : MonoBehaviour
 
 
     //ab obstacles k instantiation k liyai variables, traffic cone wala obstacle
-    public Transform firstObj
-        ;
+    public Transform firstObj;
+
     private Vector3 nextTconeSpawn;
 
     public Transform secondObj;

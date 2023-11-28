@@ -296,6 +296,7 @@ MonoBehaviour:
   xSpeed: 10
   jumpspeed: 10
   downaccel: 0.75
+  smokePrefab: {fileID: 0}
   theanimator: {fileID: 0}
   bodyrigid: {fileID: 0}
   _velocity: {x: 0, y: 0, z: 0}
@@ -351,7 +352,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: updatedmoonpath (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4251809859289655026, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10209,8 +10211,8 @@ Transform:
   m_GameObject: {fileID: 383475887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.53, z: -9.85}
-  m_LocalScale: {x: 0.36215034, y: 1, z: 0.55149}
+  m_LocalPosition: {x: 0, y: 7.75, z: -9.85}
+  m_LocalScale: {x: 0.82356244, y: 1, z: 0.55149}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 311384937}
@@ -10547,7 +10549,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: updatedmoonpath (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4251809859289655026, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10750,6 +10753,7 @@ MonoBehaviour:
   xSpeed: 10
   jumpspeed: 10
   downaccel: 0.75
+  smokePrefab: {fileID: 0}
   theanimator: {fileID: 907857943}
   bodyrigid: {fileID: 0}
   _velocity: {x: 0, y: 0, z: 0}
@@ -12136,9 +12140,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: character
       objectReference: {fileID: 0}
+    - target: {fileID: 7477203308967023373, guid: 85a8fc24074cef14c9fb8ffd361ac083, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 567883490079488278, guid: 4d6c222659a38f842ba5829a1e899ab2, type: 3}
     - target: {fileID: 8534901303609579317, guid: 85a8fc24074cef14c9fb8ffd361ac083, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8
+      value: 3.27
       objectReference: {fileID: 0}
     - target: {fileID: 8534901303609579317, guid: 85a8fc24074cef14c9fb8ffd361ac083, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12237,7 +12245,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: updatedmoonpath
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4251809859289655026, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
