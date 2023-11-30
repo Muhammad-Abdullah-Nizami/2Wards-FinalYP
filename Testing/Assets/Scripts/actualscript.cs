@@ -212,8 +212,8 @@ public class actualscript : MonoBehaviour
         {
             Debug.Log("Collision!");
             _velocity = new Vector3(0, 0, 0);
-            //theanimator.SetTrigger("rightstep");
-            Invoke("Loadgameover", 1f);
+            theanimator.SetTrigger("fall");
+            Invoke("Loadgameover", 2f);
         }
     }
     public void Loadgameover()
