@@ -33,11 +33,20 @@ public class gameflow : MonoBehaviour
     private bool isNight = true;
     public float invisiObjLength = 6.0f;
 
+
     //changes for ayman
 
     List<float> usedZPositions = new List<float>();
 
+    List<float> usedO2ZPositions = new List<float>();
 
+    private Vector3 nextO2spawn;
+
+    [SerializeField]
+    private Transform O2obj;
+    //making reference for abilityobject
+    [SerializeField]
+    private Transform abilityobject;
     void Start()
     {
 
@@ -252,6 +261,7 @@ public class gameflow : MonoBehaviour
 
     }
 
+    
 
     void spawndayObstacle()
     {
@@ -307,6 +317,52 @@ public class gameflow : MonoBehaviour
 
     void spawnnightObstacle()
     {
+
+        //THIS ALL FOR O2 SPAWNING
+        int O2chance = Random.Range(0, 3);
+        if (O2chance == 2)
+        {
+            nextO2spawn = nextTileSpawn;
+            float[] possibleO2XValues = new float[] { -2.5f, 0f, 2.5f };
+            float O2randX = possibleO2XValues[Random.Range(0, possibleO2XValues.Length)];
+            nextO2spawn.x = O2randX;
+
+            float[] possibleO2ZValues = new float[] { -11f, -7.5f, -4f, 2f, 1f, 4f, 5.5f, 8f, -14f, 14f };
+            float[] availableO2ZValues = possibleO2ZValues.Except(usedO2ZPositions).ToArray();
+
+            // Check if there are any available z positions left.
+            if (availableO2ZValues.Length == 0)
+            {
+                // All z positions have been used.
+                usedO2ZPositions.Clear();
+                availableO2ZValues = possibleO2ZValues; // Use all possible z values again.
+            }
+
+            float randO2Z = availableO2ZValues[Random.Range(0, availableO2ZValues.Length)];
+
+            // Add the newly used z position to the list.
+            usedO2ZPositions.Add(randO2Z);
+            nextO2spawn.z = nextTconeSpawn.z + randO2Z;
+
+            int randAbility = Random.Range(0, 2);
+            if (randAbility==0)
+            {
+                nextO2spawn.y = 0.6f;
+                Instantiate(O2obj, nextO2spawn, O2obj.rotation);
+            }
+
+            else
+            {
+                nextO2spawn.y = 0.6f;
+                Instantiate(abilityobject, nextO2spawn, abilityobject.rotation);
+            }
+
+            
+        }
+        //O2TANK SPAWNING DONE
+
+
+
         nextTconeSpawn = nextTileSpawn;
         float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
         float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];

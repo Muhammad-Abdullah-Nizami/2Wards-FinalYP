@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        GameObject actualScriptObject = GameObject.Find("character");
+        GameObject actualScriptObject = GameObject.Find("astronoutTPOSE");
 
         // Check if the GameObject was found
         if (actualScriptObject != null)

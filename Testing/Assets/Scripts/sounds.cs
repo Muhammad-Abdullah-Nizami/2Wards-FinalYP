@@ -18,13 +18,6 @@ public class sounds : MonoBehaviour
             Destroy(jumpSoundInstance, 0.5f);
         }
 
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            AudioSource popSoundInstance = Instantiate(popSoundPrefab);
-            popSoundInstance.Play();
-
-
-            Destroy(popSoundInstance, 0.5f);
-        }
+        
     }
 }

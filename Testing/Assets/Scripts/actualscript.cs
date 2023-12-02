@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class actualscript : MonoBehaviour
 {
     //private Player PlayerInstance;
-
+    public AudioSource popSoundPrefab;
     public static Vector3 astroposition;
 
     public float xSpeed = 8f;
@@ -24,10 +24,23 @@ public class actualscript : MonoBehaviour
     public Rigidbody bodyrigid;
     public Vector3 _velocity;
 
+    public int abilitycounter = 0;
+
+    //getting script
+
+    
     void Start()
     {
         _velocity = new Vector3(0, 0, 8);
     }
+
+    public void counterincrease()
+    {
+        abilitycounter++;
+        Debug.Log("Ability counter icreased");
+        Debug.Log(abilitycounter);
+    }
+    
 
     void Update()
     {
@@ -93,6 +106,9 @@ public class actualscript : MonoBehaviour
             {
                 
                 Destroy(hit.collider.gameObject);
+                AudioSource popSoundInstance = Instantiate(popSoundPrefab);
+                popSoundInstance.Play();
+                Destroy(popSoundInstance, 0.5f);
                 GameObject smoke = Instantiate(smokePrefab, hit.point, Quaternion.identity);
 
                 Destroy(smoke, 3.0f);
@@ -187,12 +203,26 @@ public class actualscript : MonoBehaviour
 
         if (Input.GetButtonDown("f"))
         {
-            IsObstacleInFront();
+            if (abilitycounter>0)
+            {
+                IsObstacleInFront();
+                abilitycounter--;
+                Debug.Log("after pressing F "+ abilitycounter);
+
+            }
+
         }
 
         if (Input.GetButtonDown("e"))
         {
-            IsObstacleMoveable();
+
+            if (abilitycounter > 0)
+            {
+                IsObstacleMoveable();
+                abilitycounter--;
+                Debug.Log("after pressing E " + abilitycounter);
+            }
+
         }
 
     }
