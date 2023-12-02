@@ -47,6 +47,9 @@ public class gameflow : MonoBehaviour
     //making reference for abilityobject
     [SerializeField]
     private Transform abilityobject;
+
+    [SerializeField]
+    private Transform coins;
     void Start()
     {
 
@@ -344,17 +347,27 @@ public class gameflow : MonoBehaviour
             usedO2ZPositions.Add(randO2Z);
             nextO2spawn.z = nextTconeSpawn.z + randO2Z;
 
-            int randAbility = Random.Range(0, 2);
+            int randAbility = Random.Range(0, 5);
             if (randAbility==0)
             {
                 nextO2spawn.y = 0.6f;
                 Instantiate(O2obj, nextO2spawn, O2obj.rotation);
             }
 
-            else
+            else if (randAbility==1)
             {
                 nextO2spawn.y = 0.6f;
                 Instantiate(abilityobject, nextO2spawn, abilityobject.rotation);
+            }
+
+            else
+            {
+                nextO2spawn.y = 0.75f;
+                Instantiate(coins, nextO2spawn, coins.rotation);
+                nextO2spawn.z += 2f;
+                Instantiate(coins, nextO2spawn, coins.rotation);
+                nextO2spawn.z += 2f;
+                Instantiate(coins, nextO2spawn, coins.rotation);
             }
 
             

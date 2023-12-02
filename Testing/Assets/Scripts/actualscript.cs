@@ -25,10 +25,12 @@ public class actualscript : MonoBehaviour
     public Vector3 _velocity;
 
     public int abilitycounter = 0;
+    public int coinscounter = 0;
+
 
     //getting script
 
-    
+
     void Start()
     {
         _velocity = new Vector3(0, 0, 8);
@@ -40,7 +42,14 @@ public class actualscript : MonoBehaviour
         Debug.Log("Ability counter icreased");
         Debug.Log(abilitycounter);
     }
-    
+
+    public void Coincounterincrease()
+    {
+        coinscounter++;
+        Debug.Log("Coin counter icreased");
+        Debug.Log(coinscounter);
+    }
+
 
     void Update()
     {
@@ -226,6 +235,8 @@ public class actualscript : MonoBehaviour
         }
 
     }
+
+    
 
     
     //USE THIS TO TURN HEALTH BACK TO MAXIMUM ON COLLISION TRIGGER WITH YOUR OBJECT AND DESTROY THE GAMEOBJECT
