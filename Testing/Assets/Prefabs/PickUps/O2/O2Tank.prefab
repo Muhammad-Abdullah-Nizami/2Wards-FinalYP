@@ -233,3 +233,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f69a2fc1985b440a6a34005faad7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  O2SoundPrefab: {fileID: 5720875049234311562, guid: e140e199383cc3249b6ffcf5130ba449, type: 3}

@@ -7,6 +7,8 @@ public class Newcoins : MonoBehaviour
     private actualscript actualscriptinstance;
     private Coins Coinsscriptinstance;
 
+    public AudioSource CoinSoundPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,9 @@ public class Newcoins : MonoBehaviour
     {
         if (other.tag == "character")
         {
+            AudioSource coinSoundInstance = Instantiate(CoinSoundPrefab);
+            coinSoundInstance.Play();
+            Destroy(coinSoundInstance, 0.5f);
             Coinsscriptinstance.IncrementCoins();
             Destroy(gameObject);
         }

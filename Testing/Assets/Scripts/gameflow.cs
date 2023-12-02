@@ -347,14 +347,14 @@ public class gameflow : MonoBehaviour
             usedO2ZPositions.Add(randO2Z);
             nextO2spawn.z = nextTconeSpawn.z + randO2Z;
 
-            int randAbility = Random.Range(0, 5);
-            if (randAbility==0)
+            int randAbility = Random.Range(0, 6);
+            if (randAbility<=2)
             {
                 nextO2spawn.y = 0.6f;
                 Instantiate(O2obj, nextO2spawn, O2obj.rotation);
             }
 
-            else if (randAbility==1)
+            else if (randAbility==3)
             {
                 nextO2spawn.y = 0.6f;
                 Instantiate(abilityobject, nextO2spawn, abilityobject.rotation);

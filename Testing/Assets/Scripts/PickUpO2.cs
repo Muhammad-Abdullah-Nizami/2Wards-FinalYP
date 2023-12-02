@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUpO2 : MonoBehaviour
 {
     private Player PlayerScriptInstance;
+    public AudioSource O2SoundPrefab;
     void Start()
     {
         GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 5, 0);
@@ -39,6 +40,10 @@ public class PickUpO2 : MonoBehaviour
     {
         if (other.tag == "character")
         {
+            AudioSource O2SoundInstance = Instantiate(O2SoundPrefab);
+            O2SoundInstance.Play();
+            Destroy(O2SoundInstance, 0.5f);
+
             Destroy(gameObject);
             PlayerScriptInstance.MaxHealth();
         }
