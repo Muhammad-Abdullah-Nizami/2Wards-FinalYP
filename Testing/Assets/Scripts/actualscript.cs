@@ -16,6 +16,8 @@ public class actualscript : MonoBehaviour
     public float downaccel = 0.75f;
 
     public GameObject smokePrefab;
+    public GameObject SpeedEffectPrefab;
+
 
 
     private bool aKeyPressed = false;
@@ -26,15 +28,20 @@ public class actualscript : MonoBehaviour
 
     public int abilitycounter = 0;
     public int coinscounter = 0;
+    private float timer = 0.0f;
+    private float speed = 8.0f;
 
 
     //getting script
 
 
+
     void Start()
     {
         _velocity = new Vector3(0, 0, 8);
+
     }
+
 
     public void counterincrease()
     {
@@ -56,13 +63,35 @@ public class actualscript : MonoBehaviour
         astroposition=transform.position;
     }
 
+    void slowspeedinc()
+    {
+        timer += Time.deltaTime;
+
+        // Check if the acceleration interval has passed
+        if (timer >= 15)
+        {
+            // Increase speed by 0.5
+            speed += 0.5f;
+
+            // Reset the timer
+            timer = 0.0f;
+
+            // Update the velocity with the new speed
+            _velocity = new Vector3(0, 0, speed);
+
+            Debug.Log("Speed Increased!");
+        }
+    }
+
     void FixedUpdate()
     {
         inputhandling();
         Move();
         jump();
         theanimator.SetTrigger("sprint");
+        slowspeedinc();
         bodyrigid.velocity = _velocity;
+
     }
 
     void Move()
@@ -95,6 +124,7 @@ public class actualscript : MonoBehaviour
         float rayLength = 0.1f;
         RaycastHit hit;
 
+
         if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength))
         {
             return true;
@@ -105,10 +135,11 @@ public class actualscript : MonoBehaviour
 
     void IsObstacleInFront()
     {
-        float rayLength = 10.0f;
+        float rayLength = 15.0f;
         RaycastHit hit;
+        Vector3 raycastOffset = new Vector3(0, -0.5f, 0);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+        if (Physics.Raycast(transform.position + raycastOffset, transform.forward, out hit, rayLength))
         {
             
             if (hit.collider.CompareTag("obstacle"))
@@ -129,14 +160,18 @@ public class actualscript : MonoBehaviour
 
     void IsObstacleMoveable()
     {
-        float rayLength = 10.0f;
+        float rayLength = 15.0f;
         RaycastHit hit;
+        Vector3 castOffset = new Vector3(0, -0.5f, 0);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+        if (Physics.Raycast(transform.position+ castOffset, transform.forward, out hit, rayLength))
         {
             if (hit.collider.CompareTag("moveleftobstacle"))
             {
                 MoveObstacle(hit, -2.5f);
+
+                GameObject SpeedEffect = Instantiate(SpeedEffectPrefab, hit.point, SpeedEffectPrefab.transform.rotation);
+                Destroy(SpeedEffect, 0.5f);
             }
 
         }

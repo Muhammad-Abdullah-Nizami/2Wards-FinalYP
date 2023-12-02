@@ -356,6 +356,7 @@ MonoBehaviour:
   jumpspeed: 10
   downaccel: 0.75
   smokePrefab: {fileID: 0}
+  SpeedEffectPrefab: {fileID: 0}
   theanimator: {fileID: 0}
   bodyrigid: {fileID: 0}
   _velocity: {x: 0, y: 0, z: 0}
@@ -10842,6 +10843,7 @@ MonoBehaviour:
   jumpspeed: 10
   downaccel: 0.75
   smokePrefab: {fileID: 567883490079488278, guid: 4d6c222659a38f842ba5829a1e899ab2, type: 3}
+  SpeedEffectPrefab: {fileID: 4727921770975972085, guid: 2441c198d32ad49419e7fb9713c6c206, type: 3}
   theanimator: {fileID: 508289675}
   bodyrigid: {fileID: 508289677}
   _velocity: {x: 0, y: 0, z: 0}
@@ -11101,7 +11103,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688269887}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -11713,6 +11715,7 @@ MonoBehaviour:
   jumpspeed: 10
   downaccel: 0.75
   smokePrefab: {fileID: 0}
+  SpeedEffectPrefab: {fileID: 0}
   theanimator: {fileID: 907857943}
   bodyrigid: {fileID: 0}
   _velocity: {x: 0, y: 0, z: 0}

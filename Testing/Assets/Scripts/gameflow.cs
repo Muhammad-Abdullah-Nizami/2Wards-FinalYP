@@ -259,7 +259,7 @@ public class gameflow : MonoBehaviour
                 spawnCount = 0;
             }
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2.5f);
         }
 
     }
