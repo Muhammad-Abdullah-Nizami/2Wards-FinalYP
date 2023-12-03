@@ -271,6 +271,11 @@ public class actualscript : MonoBehaviour
 
         }
 
+        if (Input.GetButtonDown("s"))
+        {
+            theanimator.SetTrigger("Slide");
+        }    
+
     }
 
     
