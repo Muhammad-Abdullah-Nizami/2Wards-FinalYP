@@ -34,6 +34,8 @@ public class actualscript : MonoBehaviour
 
     //getting script
 
+    public ParticleSystem abeffect;
+
 
 
     void Start()
@@ -290,6 +292,17 @@ public class actualscript : MonoBehaviour
             _velocity = new Vector3(0, 0, 0);
             theanimator.SetTrigger("fall");
             Invoke("Loadgameover", 2f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("O2 tank"))
+        {
+            if (abeffect != null)
+            {
+                abeffect.Play();
+            }
         }
     }
     public void Loadgameover()

@@ -65,7 +65,8 @@ public class gameflow : MonoBehaviour
 
     void Update()
     {
-        
+
+        skyboxmove();
         //this all was just for testing if it works, it does.
         //if (isNight)
         //{
@@ -78,6 +79,10 @@ public class gameflow : MonoBehaviour
         //}
     }
 
+    void skyboxmove()
+    {
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 1);
+    }
 
     //2/11/23 removed the entire concept of this spawninvisi function. Added spawnDayostacle and spawnnightobstacle instead
     //and called them in the path instantiating fucniton of spawntile
