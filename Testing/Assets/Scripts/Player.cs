@@ -72,4 +72,5 @@ public class Player : MonoBehaviour
         actualScriptInstance._velocity = new Vector3(0, 0, 0);
         SceneManager.LoadScene("game over");
     }
+    
 }

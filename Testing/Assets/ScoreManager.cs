@@ -5,29 +5,89 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text scoreText; 
-    public float scorePerSecond = 10f; // Adjust this value based on your desired scoring rate
+    public Text scoreText;
+    public Text Highscore;
+    public float scorePerSecond = 10f;
 
     private float score = 0f;
+    private float highScoreCount = 0f;
 
-    // Update is called once per frame
+    void Start()
+    {
+        // Load the high score from PlayerPrefs
+        LoadHighScore();
+    }
+
     void Update()
     {
         IncrementScore(Time.deltaTime * scorePerSecond);
         UpdateScoreUI();
     }
-     
+
     void IncrementScore(float amount)
     {
-        score += amount;
+        if (Time.timeScale > 0)
+        {
+            score += amount;
+
+            if (score > highScoreCount)
+            {
+                highScoreCount = score;
+
+                // Save the high score to PlayerPrefs
+                SaveHighScore();
+
+                // Update the Highscore UI Text element
+                if (Highscore != null)
+                {
+                    Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+                }
+            }
+        }
     }
 
     void UpdateScoreUI()
     {
         // Update the UI Text element with the current score
-        if (scoreText != null) // Fixed variable reference here
+        if (scoreText != null)
         {
             scoreText.text = "Score: " + Mathf.RoundToInt(score);
         }
+        // StopGame();
+    }
+
+    void SaveHighScore()
+    {
+        // Save the high score to PlayerPrefs
+        PlayerPrefs.SetFloat("HighScore", highScoreCount);
+        PlayerPrefs.Save();
+    }
+
+    void LoadHighScore()
+    {
+        // Load the high score from PlayerPrefs
+        highScoreCount = PlayerPrefs.GetFloat("HighScore", 0f);
+
+        // Update the Highscore UI Text element
+        if (Highscore != null)
+        {
+            Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+        }
+    }
+
+    // Call this method when the player collides with the obstacle
+    public void StopGame()
+    {
+        Time.timeScale = 0f; // Pause the scoring
+        UpdateScoreUI();
+    }
+
+    // Call this method when the player wants to reset the high score
+    public void ResetHighScore()
+    {
+        highScoreCount = 0f;
+        SaveHighScore();
+        LoadHighScore();
+        Time.timeScale = 1f; // Resume the scoring
     }
 }
