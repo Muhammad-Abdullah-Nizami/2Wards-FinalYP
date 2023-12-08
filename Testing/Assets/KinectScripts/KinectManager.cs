@@ -11,7 +11,14 @@ using UnityEngine.UI;
 
 public class KinectManager : MonoBehaviour
 {
-	public enum Smoothing : int { None, Default, Medium, Aggressive }
+
+    public Camera mainCamera;
+
+    public void Start()
+    {
+        mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+    }
+    public enum Smoothing : int { None, Default, Medium, Aggressive }
 	
 	
 	// Public Bool to determine how many players there are. Default of one user.
@@ -1334,11 +1341,12 @@ public class KinectManager : MonoBehaviour
 	        {
 				if(usersMapRect.width == 0 || usersMapRect.height == 0)
 				{
-					// get the main camera rectangle
-					Rect cameraRect = Camera.main.pixelRect;
-					
-					// calculate map width and height in percent, if needed
-					if(DisplayMapsWidthPercent == 0f)
+                    // get the main camera rectangle
+                    //Rect cameraRect = Camera.main.pixelRect;
+                    Rect cameraRect = mainCamera.pixelRect;
+
+                    // calculate map width and height in percent, if needed
+                    if (DisplayMapsWidthPercent == 0f)
 					{
 						DisplayMapsWidthPercent = (KinectWrapper.GetDepthWidth() / 2) * 100 / cameraRect.width;
 					}

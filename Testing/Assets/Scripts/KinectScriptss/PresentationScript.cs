@@ -8,18 +8,25 @@ public class PresentationScript : MonoBehaviour
 
     void Start()
     {
+        // Try to get the GestureListener component from the same GameObject
+        gestureListener = GetComponent<GestureListener>();
+
         if (gestureListener == null)
         {
-            Debug.LogError("GestureListener not assigned.");
+            Debug.LogError("GestureListener not found on the same GameObject.");
         }
-
-        gestureListener = GetComponent<GestureListener>();
 
         FindActualScript();
     }
 
     void Update()
     {
+        // Check if KinectManager is initialized and a user is detected
+        KinectManager kinectManager = KinectManager.Instance;
+        if (!kinectManager || !kinectManager.IsInitialized() || !kinectManager.IsUserDetected())
+            return;
+
+        // Now proceed with gesture handling
         if (gestureListener != null)
         {
             HandleGestures();
@@ -32,6 +39,7 @@ public class PresentationScript : MonoBehaviour
 
     void HandleGestures()
     {
+        // Your existing code for handling gestures
         if (gestureListener.IsSwipeLeft())
         {
             if (actualscriptinstance != null)
@@ -57,6 +65,7 @@ public class PresentationScript : MonoBehaviour
             }
         }
     }
+
 
     void FindActualScript()
     {
