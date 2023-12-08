@@ -278,9 +278,39 @@ public class actualscript : MonoBehaviour
 
     }
 
-    
+    public void MoveLeft()
+    {
+        if (xMovement == 0f)
+        {
+            xMovement = -2.5f;
+        }
+        else if (xMovement == 2.5f)
+        {
+            xMovement = 0f;
+        }
 
-    
+        theanimator.SetTrigger("leftstep");
+        theanimator.SetTrigger("sprint");
+    }
+
+    public void MoveRight()
+    {
+        if (xMovement == 0f)
+        {
+            xMovement = 2.5f;
+        }
+        else if (xMovement == -2.5f)
+        {
+            xMovement = 0f;
+        }
+
+        theanimator.SetTrigger("rightstep");
+        theanimator.SetTrigger("sprint");
+    }
+
+
+
+
     //USE THIS TO TURN HEALTH BACK TO MAXIMUM ON COLLISION TRIGGER WITH YOUR OBJECT AND DESTROY THE GAMEOBJECT
     //void OnTriggerEnter(Collider other)
     //{
