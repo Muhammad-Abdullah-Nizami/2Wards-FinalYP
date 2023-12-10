@@ -5,6 +5,7 @@ public class CameraSwitcher : MonoBehaviour
 {
     public Camera camera1;
     public Camera camera2;
+    public Camera camera3;
 
     private bool hasSwitched = false;
 
@@ -15,6 +16,8 @@ public class CameraSwitcher : MonoBehaviour
         
         camera1.enabled = true;
         camera2.enabled = false;
+        camera3.enabled = false;
+
         hasSwitched = false;
         startTime = Time.time;
     }
@@ -26,6 +29,7 @@ public class CameraSwitcher : MonoBehaviour
         {
             
             camera1.enabled = false;
+            camera3.enabled = true;
             camera2.enabled = true;
 
             
