@@ -65,6 +65,22 @@ public class PresentationScript : MonoBehaviour
             //    Debug.LogWarning("actualscriptinstance is null. Make sure it is assigned.");
             //}
         }
+
+        else if (gestureListener.IsJump())
+        {
+
+            actualscriptinstance._velocity.y = actualscriptinstance.jumpspeed;
+            actualscriptinstance.theanimator.SetTrigger("jump");
+            Debug.Log("JUMP Gesture Detected");
+            Debug.Log("JUMP Gesture Detected");
+            Debug.Log("JUMP Gesture Detected");
+
+
+        }
+        else
+        {
+            actualscriptinstance._velocity.y = 0f;
+        }
     }
 
 

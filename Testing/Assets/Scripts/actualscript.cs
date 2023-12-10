@@ -89,7 +89,7 @@ public class actualscript : MonoBehaviour
     {
         inputhandling();
         Move();
-        jump();
+        //jump();
         theanimator.SetTrigger("sprint");
         slowspeedinc();
         bodyrigid.velocity = _velocity;
@@ -102,25 +102,25 @@ public class actualscript : MonoBehaviour
     }
 
 
-    void jump()
-    {
-        if (IsGrounded())
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                _velocity.y = jumpspeed;
-                theanimator.SetTrigger("jump");
-            }
-            else
-            {
-                _velocity.y = 0f;
-            }
-        }
-        else
-        {
-            _velocity.y -= downaccel;
-        }
-    }
+    //void jump()
+    //{
+    //    if (IsGrounded())
+    //    {
+    //        if (Input.GetButtonDown("Jump"))
+    //        {
+    //            _velocity.y = jumpspeed;
+    //            theanimator.SetTrigger("jump");
+    //        }
+    //        else
+    //        {
+    //            _velocity.y = 0f;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        _velocity.y -= downaccel;
+    //    }
+    //}
     bool IsGrounded()
     {
         float rayLength = 0.1f;
@@ -274,8 +274,34 @@ public class actualscript : MonoBehaviour
         if (Input.GetButtonDown("s"))
         {
             theanimator.SetTrigger("Slide");
-        }    
+        }
 
+        if (IsGrounded())
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                _velocity.y = jumpspeed;
+                theanimator.SetTrigger("jump");
+            }
+            else
+            {
+                _velocity.y = 0f;
+            }
+        }
+        else
+        {
+            _velocity.y -= downaccel;
+        }
+
+    }
+
+    public void jumping()
+    {
+        
+            _velocity.y = jumpspeed;
+            theanimator.SetTrigger("jump");
+            _velocity.y = 0f;
+        
     }
 
     public void MoveLeft()

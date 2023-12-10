@@ -4,11 +4,25 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 {
     private bool swipeLeft;
     private bool swipeRight;
+    private bool Jump;
+
 
     // GUI Text to display the gesture messages.
     public UnityEngine.UI.Text GestureInfo;
 
-    public bool IsSwipeLeft()
+
+    public bool IsJump()
+    {
+        if (Jump)
+        {
+            Jump = false;
+            return true;
+        }
+
+        return false;
+    }
+
+        public bool IsSwipeLeft()
     {
         if (swipeLeft)
         {
@@ -71,7 +85,9 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
             swipeLeft = true;
         else if (gesture == KinectGestures.Gestures.SwipeRight)
             swipeRight = true;
-
+        else if (gesture == KinectGestures.Gestures.Jump)
+            Jump = true;
+        
         return true;
     }
 

@@ -13143,7 +13143,7 @@ MonoBehaviour:
   ComputeColorMap: 0
   DisplayUserMap: 1
   DisplayColorMap: 0
-  DisplaySkeletonLines: 0
+  DisplaySkeletonLines: 1
   DisplayMapsWidthPercent: 20
   SensorHeight: 1
   SensorAngle: 0
@@ -13162,7 +13162,7 @@ MonoBehaviour:
   Player2CalibrationPose: 0
   Player1Gestures: 
   Player2Gestures: 
-  MinTimeBetweenGestures: 0.7
+  MinTimeBetweenGestures: 0.2
   GestureListeners:
   - {fileID: 1866212930}
   CalibrationText: {fileID: 0}
