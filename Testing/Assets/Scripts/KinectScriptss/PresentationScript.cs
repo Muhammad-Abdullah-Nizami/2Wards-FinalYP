@@ -68,11 +68,8 @@ public class PresentationScript : MonoBehaviour
 
         else if (gestureListener.IsJump())
         {
-
-            actualscriptinstance.jumpges = true;           
-            Debug.Log("JUMP Gesture Detected");
+            Debug.Log("Jump gesture detected");
         }
-        actualscriptinstance.jumpges = false;
         
     }
 

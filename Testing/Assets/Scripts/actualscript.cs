@@ -38,13 +38,35 @@ public class actualscript : MonoBehaviour
     public bool spacebuttonpressed = false;
     public bool jumpges;
 
+    private GestureListener gesturelistenerscriptinstance;
+
+
+
 
     void Start()
     {
+        FindGLScript();
         _velocity = new Vector3(0, 0, 8);
 
     }
 
+    void FindGLScript()
+    {
+        GameObject gesturelistenerObject = GameObject.Find("KCamera");
+        if (gesturelistenerObject != null)
+        {
+            gesturelistenerscriptinstance = gesturelistenerObject.GetComponent<GestureListener>();
+
+            if (gesturelistenerscriptinstance == null)
+            {
+                Debug.LogError("gesturelistenerscript component not found on the specified GameObject.");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject with gesturelistenerscript not found.");
+        }
+    }
 
     public void counterincrease()
     {
@@ -299,7 +321,7 @@ public class actualscript : MonoBehaviour
 
      bool SpacePressed()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || gesturelistenerscriptinstance.IsJump())
         {
             return true;
         }

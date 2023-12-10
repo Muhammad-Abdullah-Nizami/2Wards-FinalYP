@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14429772, g: 0.10588906, b: 0.18066499, a: 1}
+  m_IndirectSpecularColor: {r: 0.01478493, g: 0.011704522, b: 0.026021684, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -363,6 +363,8 @@ MonoBehaviour:
   abilitycounter: 0
   coinscounter: 0
   abeffect: {fileID: 0}
+  spacebuttonpressed: 0
+  jumpges: 0
 --- !u!1001 &133966710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10903,6 +10905,8 @@ MonoBehaviour:
   abilitycounter: 0
   coinscounter: 0
   abeffect: {fileID: 572250235599698981}
+  spacebuttonpressed: 0
+  jumpges: 0
 --- !u!114 &508289679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11800,6 +11804,8 @@ MonoBehaviour:
   abilitycounter: 0
   coinscounter: 0
   abeffect: {fileID: 0}
+  spacebuttonpressed: 0
+  jumpges: 0
 --- !u!54 &907857945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13086,7 +13092,7 @@ GameObject:
   - component: {fileID: 1866212929}
   - component: {fileID: 1866212928}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: KCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
