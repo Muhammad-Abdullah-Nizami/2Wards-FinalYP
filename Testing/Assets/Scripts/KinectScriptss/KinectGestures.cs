@@ -937,7 +937,7 @@ public class KinectGestures
 				{
 					case 0:  // gesture detection - phase 1
 						if(jointsTracked[hipCenterIndex] && 
-							(jointsPos[hipCenterIndex].y > /*0.9f*/ 0.3f) && (jointsPos[hipCenterIndex].y < /*1.3f*/ 0.8f))
+							(jointsPos[hipCenterIndex].y > 0.9f) && (jointsPos[hipCenterIndex].y < 1.3f))
 						{
 							SetGestureJoint(ref gestureData, timestamp, hipCenterIndex, jointsPos[hipCenterIndex]);
 							gestureData.progress = 0.5f;
@@ -948,7 +948,7 @@ public class KinectGestures
 						if((timestamp - gestureData.timestamp) < 1.5f)
 						{
 							bool isInPose = jointsTracked[hipCenterIndex] &&
-								(jointsPos[hipCenterIndex].y - gestureData.jointPos.y) > 0.15f && 
+								(jointsPos[hipCenterIndex].y - gestureData.jointPos.y) > 0.015f && 
 								Mathf.Abs(jointsPos[hipCenterIndex].x - gestureData.jointPos.x) < 0.2f;
 
 							if(isInPose)

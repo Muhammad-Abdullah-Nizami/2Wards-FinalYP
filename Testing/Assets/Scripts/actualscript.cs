@@ -35,7 +35,8 @@ public class actualscript : MonoBehaviour
     //getting script
 
     public ParticleSystem abeffect;
-
+    public bool spacebuttonpressed = false;
+    public bool jumpges;
 
 
     void Start()
@@ -278,7 +279,7 @@ public class actualscript : MonoBehaviour
 
         if (IsGrounded())
         {
-            if (Input.GetButtonDown("Jump"))
+            if (SpacePressed() || jumpges)
             {
                 _velocity.y = jumpspeed;
                 theanimator.SetTrigger("jump");
@@ -291,17 +292,18 @@ public class actualscript : MonoBehaviour
         else
         {
             _velocity.y -= downaccel;
+            
         }
 
     }
 
-    public void jumping()
+     bool SpacePressed()
     {
-        
-            _velocity.y = jumpspeed;
-            theanimator.SetTrigger("jump");
-            _velocity.y = 0f;
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            return true;
+        }
+        return false;
     }
 
     public void MoveLeft()

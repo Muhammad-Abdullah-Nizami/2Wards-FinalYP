@@ -69,18 +69,11 @@ public class PresentationScript : MonoBehaviour
         else if (gestureListener.IsJump())
         {
 
-            actualscriptinstance._velocity.y = actualscriptinstance.jumpspeed;
-            actualscriptinstance.theanimator.SetTrigger("jump");
+            actualscriptinstance.jumpges = true;           
             Debug.Log("JUMP Gesture Detected");
-            Debug.Log("JUMP Gesture Detected");
-            Debug.Log("JUMP Gesture Detected");
-
-
         }
-        else
-        {
-            actualscriptinstance._velocity.y = 0f;
-        }
+        actualscriptinstance.jumpges = false;
+        
     }
 
 
