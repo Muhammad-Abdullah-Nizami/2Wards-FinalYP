@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     private float highScoreCount = 0f;
 
     public static bool GameHasEnded = false;
+    public static float CountedScoretoDisplay = 0;
     void Start()
     {
         // Load the high score from PlayerPrefs
@@ -57,6 +58,7 @@ public class ScoreManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + Mathf.RoundToInt(score);
+            CountedScoretoDisplay = Mathf.RoundToInt(score);
         }
         // StopGame();
     }

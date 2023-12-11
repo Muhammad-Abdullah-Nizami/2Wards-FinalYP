@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class mainmenu : MonoBehaviour
 {
@@ -14,8 +15,13 @@ public class mainmenu : MonoBehaviour
     //variable for pause menu
     public static bool GameIspaused = false;
     public GameObject PauseMenuUI;
+    //variable to show highscore on gameover ui
+    public Text ScoreCount;
+    
+
     private void Update()
     {
+        ShowScoreOnGameOver();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIspaused)
@@ -27,6 +33,7 @@ public class mainmenu : MonoBehaviour
                 Pause();
             }
         }
+        
     }
     public void playgame()
     {
@@ -77,4 +84,10 @@ public class mainmenu : MonoBehaviour
     //    Debug.Log("QUITING GAME...");
     //    //Application.Quit();
     //}
+
+    private void ShowScoreOnGameOver()
+    {
+        Debug.Log("Score::" + ScoreManager.CountedScoretoDisplay);
+        ScoreCount.text = "Your Score: " +ScoreManager.CountedScoretoDisplay;
+    }
 }

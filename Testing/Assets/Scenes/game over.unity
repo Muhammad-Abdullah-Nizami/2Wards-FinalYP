@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,7 +402,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -429,7 +429,6 @@ RectTransform:
   - {fileID: 135795756}
   - {fileID: 1240931286}
   - {fileID: 928594365}
-  - {fileID: 2040525802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -488,6 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731780279cd394e49ba6a72740eab40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenuUI: {fileID: 0}
+  ScoreCount: {fileID: 0}
 --- !u!1 &174680296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1605,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 928594365}
-  - component: {fileID: 928594366}
   m_Layer: 5
   m_Name: Gameover
   m_TagString: Untagged
@@ -1627,6 +1627,7 @@ RectTransform:
   - {fileID: 1710322983}
   - {fileID: 67798061}
   - {fileID: 607050383}
+  - {fileID: 2040525802}
   m_Father: {fileID: 87879780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1634,18 +1635,6 @@ RectTransform:
   m_AnchoredPosition: {x: -22.2452, y: 16.699}
   m_SizeDelta: {x: 353.1579, y: 286.6343}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &928594366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928594364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731780279cd394e49ba6a72740eab40f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &932127416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,8 +2838,9 @@ GameObject:
   - component: {fileID: 2040525802}
   - component: {fileID: 2040525804}
   - component: {fileID: 2040525803}
+  - component: {fileID: 2040525805}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: ScoreOnUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2863,16 +2853,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040525801}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 9.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 87879780}
+  m_Father: {fileID: 928594365}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.7, y: 172.9}
+  m_AnchoredPosition: {x: 8.545178, y: 156.20099}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040525803
@@ -2917,6 +2907,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040525801}
   m_CullTransparentMesh: 1
+--- !u!114 &2040525805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040525801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731780279cd394e49ba6a72740eab40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenuUI: {fileID: 0}
+  ScoreCount: {fileID: 2040525803}
 --- !u!1 &2094435098
 GameObject:
   m_ObjectHideFlags: 0
