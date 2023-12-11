@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.08750381, g: 0.06382018, b: 0.12098942, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12302,7 +12302,7 @@ MonoBehaviour:
   m_bendOn: 1
   m_curveOrigin: {fileID: 688269888}
   m_referenceDirection: {fileID: 1119288598}
-  m_curvature: 500
+  m_curvature: -200
   m_xScale: 0.5
   m_zScale: 0.826
   m_flatMargin: 0
@@ -13203,7 +13203,7 @@ Behaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866212927}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &1866212929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13211,7 +13211,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866212927}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb879eb08cd3584a9ec53901e83be1e, type: 3}
   m_Name: 
@@ -13236,7 +13236,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866212927}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00db858c1f8ff90478dad0aa1bac9a2c, type: 3}
   m_Name: 
@@ -13266,7 +13266,7 @@ MonoBehaviour:
   Player2CalibrationPose: 0
   Player1Gestures: 
   Player2Gestures: 
-  MinTimeBetweenGestures: 0.2
+  MinTimeBetweenGestures: 0.1
   GestureListeners:
   - {fileID: 1866212930}
   CalibrationText: {fileID: 0}
