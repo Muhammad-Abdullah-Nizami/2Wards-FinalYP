@@ -28,9 +28,9 @@ public class gameflow : MonoBehaviour
     public Transform targetsign;   
 
     public int spawnCount = 3;
-    private bool spawnRoad1 = true;
+    //private bool spawnRoad1 = true;
 
-    private bool isNight = true;
+    //private bool isNight = true;
     public float invisiObjLength = 6.0f;
 
 
