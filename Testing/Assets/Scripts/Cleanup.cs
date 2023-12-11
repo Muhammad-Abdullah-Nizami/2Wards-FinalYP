@@ -13,7 +13,7 @@ public class Cleanup : MonoBehaviour
     
     void Update()
     {
-        if (transform.position.z<actualscript.astroposition.z-60)
+        if (transform.position.z<actualscript.astroposition.z-40)
         {
             Destroy(gameObject);
         }
