@@ -39,7 +39,7 @@ public class actualscript : MonoBehaviour
     public bool jumpges;
 
     private GestureListener gesturelistenerscriptinstance;
-
+    
 
 
 
@@ -373,10 +373,12 @@ public class actualscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))
         {
+            ScoreManager.GameHasEnded = true;
             Debug.Log("Collision!");
             _velocity = new Vector3(0, 0, 0);
             theanimator.SetTrigger("fall");
             Invoke("Loadgameover", 2f);
+            
         }
     }
 

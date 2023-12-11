@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
     private float score = 0f;
     private float highScoreCount = 0f;
 
+    public static bool GameHasEnded = false;
     void Start()
     {
         // Load the high score from PlayerPrefs
@@ -26,24 +27,28 @@ public class ScoreManager : MonoBehaviour
 
     void IncrementScore(float amount)
     {
-        if (Time.timeScale > 0)
+        if (!GameHasEnded)
         {
-            score += amount;
-
-            if (score > highScoreCount)
+            if (Time.timeScale > 0)
             {
-                highScoreCount = score;
+                score += amount;
 
-                // Save the high score to PlayerPrefs
-                SaveHighScore();
-
-                // Update the Highscore UI Text element
-                if (Highscore != null)
+                if (score > highScoreCount)
                 {
-                    Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+                    highScoreCount = score;
+
+                    // Save the high score to PlayerPrefs
+                    SaveHighScore();
+
+                    // Update the Highscore UI Text element
+                    if (Highscore != null)
+                    {
+                        Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+                    }
                 }
             }
         }
+            
     }
 
     void UpdateScoreUI()
