@@ -17,7 +17,7 @@ public class mainmenu : MonoBehaviour
     public GameObject PauseMenuUI;
     //variable to show highscore on gameover ui
     public Text ScoreCount;
-    
+    public Text HighScoreCount;
 
     private void Update()
     {
@@ -90,5 +90,7 @@ public class mainmenu : MonoBehaviour
     {
         Debug.Log("Score::" + ScoreManager.CountedScoretoDisplay);
         ScoreCount.text = "Your Score: " +ScoreManager.CountedScoretoDisplay;
+        HighScoreCount.text = "HGIH SCORE " + Mathf.RoundToInt(ScoreManager.highScoreCount);
+
     }
 }

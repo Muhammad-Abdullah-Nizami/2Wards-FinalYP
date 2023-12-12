@@ -10,10 +10,13 @@ public class ScoreManager : MonoBehaviour
     public float scorePerSecond = 10f;
 
     private float score = 0f;
-    private float highScoreCount = 0f;
-
+    public static float highScoreCount = 0f;
+    
+    //variables to stop score upon gameover and display score on ui
     public static bool GameHasEnded = false;
     public static float CountedScoretoDisplay = 0;
+    
+
     void Start()
     {
         // Load the high score from PlayerPrefs
@@ -59,6 +62,7 @@ public class ScoreManager : MonoBehaviour
         {
             scoreText.text = "Score: " + Mathf.RoundToInt(score);
             CountedScoretoDisplay = Mathf.RoundToInt(score);
+
         }
         // StopGame();
     }
