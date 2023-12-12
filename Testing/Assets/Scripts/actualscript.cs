@@ -45,6 +45,7 @@ public class actualscript : MonoBehaviour
 
     void Start()
     {
+        ScoreManager.GameHasEnded = false;
         FindGLScript();
         _velocity = new Vector3(0, 0, 8);
 

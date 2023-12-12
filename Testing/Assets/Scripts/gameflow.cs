@@ -347,7 +347,7 @@ public class gameflow : MonoBehaviour
             float[] availableO2ZValues = possibleO2ZValues.Except(usedO2ZPositions).ToArray();
 
             // Check if there are any available z positions left.
-            if (availableO2ZValues.Length == 0)
+            if (availableO2ZValues.Length == 1)
             {
                 // All z positions have been used.
                 usedO2ZPositions.Clear();
@@ -399,7 +399,7 @@ public class gameflow : MonoBehaviour
         float[] availableZValues = possibleZValues.Except(usedZPositions).ToArray();
 
         // Check if there are any available z positions left.
-        if (availableZValues.Length == 0)
+        if (availableZValues.Length == 1)
         {
             // All z positions have been used.
             usedZPositions.Clear();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.08750381, g: 0.06382018, b: 0.12098942, a: 1}
+  m_IndirectSpecularColor: {r: 0.07619127, g: 0.055420473, b: 0.10942348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12270,6 +12270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 608807795}
+  ScoreCount: {fileID: 0}
 --- !u!1 &1119288596
 GameObject:
   m_ObjectHideFlags: 0
@@ -12302,7 +12303,7 @@ MonoBehaviour:
   m_bendOn: 1
   m_curveOrigin: {fileID: 688269888}
   m_referenceDirection: {fileID: 1119288598}
-  m_curvature: -200
+  m_curvature: 25
   m_xScale: 0.5
   m_zScale: 0.826
   m_flatMargin: 0

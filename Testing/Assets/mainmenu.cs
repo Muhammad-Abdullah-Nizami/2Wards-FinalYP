@@ -21,7 +21,6 @@ public class mainmenu : MonoBehaviour
 
     private void Update()
     {
-        ShowScoreOnGameOver();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIspaused)
@@ -33,7 +32,9 @@ public class mainmenu : MonoBehaviour
                 Pause();
             }
         }
-        
+        ShowScoreOnGameOver();
+
+
     }
     public void playgame()
     {
