@@ -271,7 +271,7 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("f"))
+        if (Input.GetButtonDown("f") || gesturelistenerscriptinstance.IsSwipeUp())
         {
             if (abilitycounter>0)
             {

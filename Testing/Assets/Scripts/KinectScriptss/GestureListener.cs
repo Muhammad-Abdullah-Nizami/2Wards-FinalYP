@@ -4,6 +4,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 {
     private bool swipeLeft;
     private bool swipeRight;
+    private bool swipeUp;
     private bool jump;
 
 
@@ -44,6 +45,17 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
         return false;
     }
 
+    public bool IsSwipeUp()
+    {
+        if (swipeUp)
+        {
+            swipeUp = false;
+            return true;
+        }
+
+        return false;
+    }
+
     public void UserDetected(uint userId, int userIndex)
     {
         // Detect these user-specific gestures
@@ -52,10 +64,12 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
         manager.DetectGesture(userId, KinectGestures.Gestures.SwipeLeft);
         manager.DetectGesture(userId, KinectGestures.Gestures.SwipeRight);
         manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
+        manager.DetectGesture(userId, KinectGestures.Gestures.Squat);
+
 
         if (GestureInfo != null)
         {
-            GestureInfo.text = "Swipe left or right to change the slides.";
+            GestureInfo.text = "Perform Gestures.";
         }
     }
 
@@ -88,7 +102,9 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
             swipeRight = true;
         else if (gesture == KinectGestures.Gestures.Jump)
             jump = true;
-        
+        else if (gesture == KinectGestures.Gestures.Squat)
+            swipeUp = true;
+
         return true;
     }
 
