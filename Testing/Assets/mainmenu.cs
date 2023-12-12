@@ -12,12 +12,15 @@ public class mainmenu : MonoBehaviour
     //
 
 
+    private ScoreManager scoremanagerscriptinstance;
+
     //variable for pause menu
     public static bool GameIspaused = false;
     public GameObject PauseMenuUI;
     //variable to show highscore on gameover ui
     public Text ScoreCount;
     public Text HighScoreCount;
+    
 
     private void Update()
     {
@@ -32,7 +35,15 @@ public class mainmenu : MonoBehaviour
                 Pause();
             }
         }
-        ShowScoreOnGameOver();
+        if (ScoreManager.GameHasEnded)
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                ShowScoreOnGameOver();
+            }
+            
+
+        }
 
 
     }
@@ -88,9 +99,31 @@ public class mainmenu : MonoBehaviour
 
     private void ShowScoreOnGameOver()
     {
-        Debug.Log("Score::" + ScoreManager.CountedScoretoDisplay);
+        //Debug.Log("Score::" + ScoreManager.CountedScoretoDisplay);
         ScoreCount.text = "Your Score: " +ScoreManager.CountedScoretoDisplay;
-        HighScoreCount.text = "HGIH SCORE " + Mathf.RoundToInt(ScoreManager.highScoreCount);
+        HighScoreCount.text = "HGIH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
 
     }
+
+
+    //void functionbangaya()
+    //{
+    //    GameObject scoremanagerscriptObject = GameObject.Find("Score");
+    //    if (scoremanagerscriptObject != null)
+    //    {
+    //        scoremanagerscriptinstance = scoremanagerscriptObject.GetComponent<ScoreManager>();
+
+
+    //        if (scoremanagerscriptinstance == null)
+    //        {
+    //            Debug.LogError("scoremanagerscript component not found on the specified GameObject.");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("GameObject with scoremanagerscript not found.");
+    //    }
+
+
+    //}
 }

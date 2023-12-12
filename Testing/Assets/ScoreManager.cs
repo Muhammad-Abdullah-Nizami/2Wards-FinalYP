@@ -10,12 +10,14 @@ public class ScoreManager : MonoBehaviour
     public float scorePerSecond = 10f;
 
     private float score = 0f;
-    public static float highScoreCount = 0f;
+    private float highScoreCount = 0f;
     
     //variables to stop score upon gameover and display score on ui
     public static bool GameHasEnded = false;
     public static float CountedScoretoDisplay = 0;
-    
+    public static float HighscoretoDisplay = 0;
+
+
 
     void Start()
     {
@@ -48,6 +50,7 @@ public class ScoreManager : MonoBehaviour
                     if (Highscore != null)
                     {
                         Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+                        
                     }
                 }
             }
@@ -71,6 +74,7 @@ public class ScoreManager : MonoBehaviour
     {
         // Save the high score to PlayerPrefs
         PlayerPrefs.SetFloat("HighScore", highScoreCount);
+        
         PlayerPrefs.Save();
     }
 
@@ -83,6 +87,7 @@ public class ScoreManager : MonoBehaviour
         if (Highscore != null)
         {
             Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+            HighscoretoDisplay = Mathf.RoundToInt(highScoreCount);
         }
     }
 
