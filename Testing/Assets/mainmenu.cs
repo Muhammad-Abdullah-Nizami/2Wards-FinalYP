@@ -101,7 +101,7 @@ public class mainmenu : MonoBehaviour
     {
         //Debug.Log("Score::" + ScoreManager.CountedScoretoDisplay);
         ScoreCount.text = "Your Score: " +ScoreManager.CountedScoretoDisplay;
-        HighScoreCount.text = "HGIH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
+        HighScoreCount.text = "HIGH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
 
     }
 
