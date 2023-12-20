@@ -6,6 +6,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
     private bool swipeRight;
     private bool swipeUp;
     private bool jump;
+    private bool squat;
 
 
     // GUI Text to display the gesture messages.
@@ -50,6 +51,17 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
         if (swipeUp)
         {
             swipeUp = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool isSquat()
+    {
+        if (squat)
+        {
+            squat = false;
             return true;
         }
 

@@ -341,7 +341,7 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("f") || gesturelistenerscriptinstance.IsSwipeUp())
+        if (Input.GetButtonDown("f"))
         {
             if (abilitycounter>0)
             {
@@ -353,7 +353,7 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("e"))
+        if (Input.GetButtonDown("e") || gesturelistenerscriptinstance.IsSwipeUp())
         {
 
             if (abilitycounter > 0)
@@ -378,7 +378,7 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("s"))
+        if (Input.GetButtonDown("s") || gesturelistenerscriptinstance.isSquat())
         {
             theanimator.SetTrigger("roll");
         }
