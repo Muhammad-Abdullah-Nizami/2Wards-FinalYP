@@ -190,16 +190,15 @@ public class actualscript : MonoBehaviour
         RaycastHit hit;
         Vector3 castOffset = new Vector3(0, -0.5f, 0);
 
-        if (Physics.Raycast(transform.position+ castOffset, transform.forward, out hit, rayLength))
+        if (Physics.Raycast(transform.position + castOffset, transform.forward, out hit, rayLength))
         {
             if (hit.collider.CompareTag("moveleftobstacle"))
             {
-                MoveObstacle(hit, -2.5f);
+                MoveObstacle(hit, 100.5f);
 
                 GameObject SpeedEffect = Instantiate(SpeedEffectPrefab, hit.point, SpeedEffectPrefab.transform.rotation);
                 Destroy(SpeedEffect, 0.5f);
             }
-
         }
     }
 
@@ -208,12 +207,83 @@ public class actualscript : MonoBehaviour
         // Get the obstacle's current position
         Vector3 obstaclePosition = hit.collider.transform.position;
 
-        // Calculate the new position based on the movement amount
-        Vector3 newPosition = new Vector3(obstaclePosition.x + moveAmount, obstaclePosition.y, obstaclePosition.z);
+        // Calculate the target position based on the movement amount
+        Vector3 targetPosition = new Vector3(obstaclePosition.x, obstaclePosition.y + moveAmount, obstaclePosition.z);
 
-        // Move the obstacle to the new position
-        hit.collider.transform.position = newPosition;
+        // Move the obstacle towards the target position smoothly
+        float moveSpeed = 5.0f; // Adjust this value as needed
+        hit.collider.transform.position = Vector3.MoveTowards(obstaclePosition, targetPosition, moveSpeed * Time.deltaTime);
     }
+
+
+
+    //original
+    //void IsObstacleMoveable()
+    //{
+    //    float rayLength = 15.0f;
+    //    RaycastHit hit;
+    //    Vector3 castOffset = new Vector3(0, -0.5f, 0);
+
+    //    if (Physics.Raycast(transform.position+ castOffset, transform.forward, out hit, rayLength))
+    //    {
+    //        if (hit.collider.CompareTag("moveleftobstacle"))
+    //        {
+    //            MoveObstacle(hit, 10.5f);
+
+    //            GameObject SpeedEffect = Instantiate(SpeedEffectPrefab, hit.point, SpeedEffectPrefab.transform.rotation);
+    //            Destroy(SpeedEffect, 0.5f);
+    //        }
+
+    //    }
+    //}
+
+    void takeoff()
+    {
+        float rayLength = 15.0f;
+        RaycastHit hit;
+        
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
+        {
+            if (hit.collider.CompareTag("moveleftobstacle"))
+            {
+                Animator animator = GetComponent<Animator>();
+
+                // Check if the Animator component is not null
+                if (animator != null)
+                {
+                    // Play the "takeoff" animation clip
+                    animator.Play("takeoff");
+                    Debug.LogWarning("playing takeoff");
+
+                }
+                else
+                {
+                    // Log a warning if Animator component is not found
+                    Debug.LogWarning("Animator component not found on the GameObject.");
+                }
+                //MoveObstacle(hit, -2.5f); 
+
+                //GameObject SpeedEffect = Instantiate(SpeedEffectPrefab, hit.point, SpeedEffectPrefab.transform.rotation);
+                //Destroy(SpeedEffect, 0.5f);
+            }
+
+        }
+    }
+
+    //original move obstacle
+    //void MoveObstacle(RaycastHit hit, float moveAmount)
+    //{
+    //    // Get the obstacle's current position
+    //    Vector3 obstaclePosition = hit.collider.transform.position;
+
+    //    // Calculate the new position based on the movement amount
+    //    //Vector3 newPosition = new Vector3(obstaclePosition.x + moveAmount, obstaclePosition.y, obstaclePosition.z);
+    //    Vector3 newPosition = new Vector3(obstaclePosition.x, obstaclePosition.y + moveAmount, obstaclePosition.z);
+
+    //    // Move the obstacle to the new position
+    //    hit.collider.transform.position = newPosition;
+    //}
 
     void inputhandling()
     {
@@ -288,9 +358,11 @@ public class actualscript : MonoBehaviour
 
             if (abilitycounter > 0)
             {
+                //takeoff();
                 IsObstacleMoveable();
                 abilitycounter--;
                 Debug.Log("after pressing E " + abilitycounter);
+
             }
 
         }

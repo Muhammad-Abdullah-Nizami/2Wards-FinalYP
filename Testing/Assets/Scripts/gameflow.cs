@@ -417,7 +417,7 @@ public class gameflow : MonoBehaviour
 
         if (randObstacle == 0)
         {
-            nextTconeSpawn.y = 2.0f;
+            nextTconeSpawn.y = 2.4f;
             Instantiate(firstObj, nextTconeSpawn, firstObj.rotation);
         }
         else if (randObstacle == 1)
