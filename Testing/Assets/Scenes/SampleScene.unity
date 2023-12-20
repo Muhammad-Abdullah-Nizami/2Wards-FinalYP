@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.013050968, g: 0.010418283, b: 0.022769608, a: 1}
+  m_IndirectSpecularColor: {r: 0.13322219, g: 0.09746369, b: 0.16881934, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -129,7 +129,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1048109972}
     m_Modifications:
     - target: {fileID: 646041904087930012, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -157,11 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a3e4d4eeeecf5124986852e2046bb341, type: 2}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -391.5
       objectReference: {fileID: 0}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -167
       objectReference: {fileID: 0}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -173,15 +173,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5940,7 +5940,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a18c67e552a9c8944b5125408c102d7b, type: 3}
+    m_Font: {fileID: 12800000, guid: e87eb46592de36a43aa135d4183fa5c6, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -12319,6 +12319,7 @@ RectTransform:
   m_Children:
   - {fileID: 1258579232}
   - {fileID: 608807796}
+  - {fileID: 1601353121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12923,12 +12924,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a18c67e552a9c8944b5125408c102d7b, type: 3}
+    m_Font: {fileID: 12800000, guid: 7eb2bcfc68088db49abefcdcd4b53de3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 14
+    m_MaxSize: 30
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -13130,7 +13131,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a18c67e552a9c8944b5125408c102d7b, type: 3}
+    m_Font: {fileID: 12800000, guid: 7eb2bcfc68088db49abefcdcd4b53de3, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -13151,6 +13152,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567464755}
   m_CullTransparentMesh: 1
+--- !u!4 &1601353121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7054510535139202852, guid: 11b45b1866f9952498d20b45001e759f, type: 3}
+  m_PrefabInstance: {fileID: 63069354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1703708102
 GameObject:
   m_ObjectHideFlags: 0
@@ -13676,7 +13682,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a18c67e552a9c8944b5125408c102d7b, type: 3}
+    m_Font: {fileID: 12800000, guid: 863c9143b8eab244cb175fc82f51e87d, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -14273,7 +14279,6 @@ SceneRoots:
   - {fileID: 6388829902312964867}
   - {fileID: 757544482}
   - {fileID: 133966710}
-  - {fileID: 63069354}
   - {fileID: 1048109972}
   - {fileID: 168264025}
   - {fileID: 193319268}

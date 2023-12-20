@@ -297,7 +297,7 @@ public class actualscript : MonoBehaviour
 
         if (Input.GetButtonDown("s"))
         {
-            theanimator.SetTrigger("Slide");
+            theanimator.SetTrigger("roll");
         }
 
         if (IsGrounded())
