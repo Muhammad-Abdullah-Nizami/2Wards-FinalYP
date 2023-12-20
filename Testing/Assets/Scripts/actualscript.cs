@@ -358,10 +358,21 @@ public class actualscript : MonoBehaviour
 
             if (abilitycounter > 0)
             {
-                //takeoff();
-                IsObstacleMoveable();
-                abilitycounter--;
-                Debug.Log("after pressing E " + abilitycounter);
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, 15.0f))
+                {
+                    // Check if hit the rocket
+                    if (hit.collider.gameObject.tag == "moveleftobstacle")
+                    {
+                        hit.collider.gameObject.GetComponent<Animator>().SetTrigger("takeoff");
+                        Debug.Log("Animation played");
+                    }
+                    //takeoff();
+
+                    //IsObstacleMoveable();
+                    abilitycounter--;
+                    Debug.Log("after pressing E " + abilitycounter);
+                }
 
             }
 
