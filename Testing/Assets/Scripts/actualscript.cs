@@ -26,7 +26,7 @@ public class actualscript : MonoBehaviour
     public Rigidbody bodyrigid;
     public Vector3 _velocity;
 
-    public int abilitycounter = 0;
+    public int abilitycounter = 1000;
     public int coinscounter = 0;
     private float timer = 0.0f;
     private float speed = 8.0f;

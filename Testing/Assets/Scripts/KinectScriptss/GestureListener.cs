@@ -77,6 +77,8 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
         manager.DetectGesture(userId, KinectGestures.Gestures.SwipeRight);
         manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
         manager.DetectGesture(userId, KinectGestures.Gestures.Squat);
+        manager.DetectGesture(userId, KinectGestures.Gestures.SwipeUp);
+
 
 
         if (GestureInfo != null)
@@ -115,8 +117,9 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
         else if (gesture == KinectGestures.Gestures.Jump)
             jump = true;
         else if (gesture == KinectGestures.Gestures.Squat)
+            squat = true;
+        else if (gesture == KinectGestures.Gestures.SwipeUp)
             swipeUp = true;
-
         return true;
     }
 

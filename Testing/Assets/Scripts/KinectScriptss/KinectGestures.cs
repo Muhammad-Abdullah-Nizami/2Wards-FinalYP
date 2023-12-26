@@ -980,7 +980,7 @@ public class KinectGestures
 						break;
 				
 					case 1:  // gesture phase 2 = complete
-						if((timestamp - gestureData.timestamp) < 0.5f)
+						if((timestamp - gestureData.timestamp) < 1.0f)
 						{
 							bool isInPose = jointsTracked[hipCenterIndex] &&
 								(jointsPos[hipCenterIndex].y - gestureData.jointPos.y) < -0.15f && 
