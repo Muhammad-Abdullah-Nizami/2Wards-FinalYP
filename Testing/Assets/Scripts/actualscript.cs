@@ -144,7 +144,7 @@ public class actualscript : MonoBehaviour
         }
         else
         {
-            _velocity.y = 10f; // Adjust the value for regular jump
+            _velocity.y = 13f; // Adjust the value for regular jump
             theanimator.SetTrigger("jump");
         }
 
