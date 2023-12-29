@@ -12,8 +12,8 @@ public class actualscript : MonoBehaviour
 
     public float xSpeed = 8f;
     private float xMovement;
-    public float jumpspeed = 10f;
-    public float downaccel = 0.75f;
+    //public float jumpspeed = 10f;
+    //public float downaccel = 0.75f;
 
     public GameObject smokePrefab;
     public GameObject SpeedEffectPrefab;
@@ -30,6 +30,12 @@ public class actualscript : MonoBehaviour
     public int coinscounter = 0;
     private float timer = 0.0f;
     private float speed = 8.0f;
+
+
+    //jumpingabilitystuff
+    bool isHighJumping = false;
+
+    //private float flyv2Movement=0.25f;
 
 
     //getting script
@@ -111,40 +117,40 @@ public class actualscript : MonoBehaviour
 
     void FixedUpdate()
     {
+
+
         inputhandling();
         Move();
-        //jump();
+        
         theanimator.SetTrigger("sprint");
         slowspeedinc();
         bodyrigid.velocity = _velocity;
 
     }
 
+    
+
     void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(xMovement, transform.position.y, transform.position.z), Time.deltaTime * xSpeed);
     }
 
+    void Jump()
+    {
+        if (isHighJumping)
+        {
+            _velocity.y = 35f; // Adjust the value for high jump
+            theanimator.SetTrigger("highjump");
+        }
+        else
+        {
+            _velocity.y = 10f; // Adjust the value for regular jump
+            theanimator.SetTrigger("jump");
+        }
 
-    //void jump()
-    //{
-    //    if (IsGrounded())
-    //    {
-    //        if (Input.GetButtonDown("Jump"))
-    //        {
-    //            _velocity.y = jumpspeed;
-    //            theanimator.SetTrigger("jump");
-    //        }
-    //        else
-    //        {
-    //            _velocity.y = 0f;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        _velocity.y -= downaccel;
-    //    }
-    //}
+        
+    }
+
     bool IsGrounded()
     {
         float rayLength = 0.1f;
@@ -287,6 +293,33 @@ public class actualscript : MonoBehaviour
 
     void inputhandling()
     {
+        //if (Input.GetButtonDown("x") && !isFlying)
+        //{
+        //    flyv2Movement = 15f;
+        //    isFlying = true;
+        //    flyingTimer = 0f;
+        //    canJump = false;
+        //    Debug.Log("y changed to 15f!");
+        //}
+
+        //if (isFlying)
+        //{
+        //    // Increment the flying timer
+        //    flyingTimer += Time.deltaTime;
+
+        //    // Check if the flying duration has passed
+        //    if (flyingTimer >= flyingDuration)
+        //    {
+        //        // Deactivate the flying ability after the duration
+        //        isFlying = false;
+        //        canJump = true;
+        //        // Reset the flying movement
+        //        flyv2Movement = 0.25f;
+        //        Debug.Log("y changed to 0f!");
+
+        //    }
+
+        //}
 
         if (Input.GetKeyDown("d") && !dKeyPressed)
         {
@@ -385,74 +418,45 @@ public class actualscript : MonoBehaviour
 
         if (IsGrounded())
         {
-            if (SpacePressed() || jumpges)
+            if (Input.GetButtonDown("Jump"))
             {
-                _velocity.y = jumpspeed;
-                theanimator.SetTrigger("jump");
+                isHighJumping = false;
+                Jump();
+                //_velocity.y = 10f;
+                //theanimator.SetTrigger("jump");
+            }
+
+            else if (Input.GetButtonDown("x"))
+            {
+                // High jump
+                isHighJumping = true;
+                Jump();
             }
             else
             {
+                
                 _velocity.y = 0f;
+                
             }
         }
         else
         {
-            _velocity.y -= downaccel;
+            if (isHighJumping)
+            {
+                _velocity.y -= 0.25f;
+            }
+
+            else
+            {
+                _velocity.y -= 0.75f;
+            }
             
         }
 
+
+
     }
 
-     bool SpacePressed()
-    {
-        if (Input.GetButtonDown("Jump") || gesturelistenerscriptinstance.IsJump())
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public void MoveLeft()
-    {
-        if (xMovement == 0f)
-        {
-            xMovement = -2.5f;
-        }
-        else if (xMovement == 2.5f)
-        {
-            xMovement = 0f;
-        }
-
-        theanimator.SetTrigger("leftstep");
-        theanimator.SetTrigger("sprint");
-    }
-
-    public void MoveRight()
-    {
-        if (xMovement == 0f)
-        {
-            xMovement = 2.5f;
-        }
-        else if (xMovement == -2.5f)
-        {
-            xMovement = 0f;
-        }
-
-        theanimator.SetTrigger("rightstep");
-        theanimator.SetTrigger("sprint");
-    }
-
-
-
-
-    //USE THIS TO TURN HEALTH BACK TO MAXIMUM ON COLLISION TRIGGER WITH YOUR OBJECT AND DESTROY THE GAMEOBJECT
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Tank"))
-    //    {
-    //        PlayerInstance.MaxHealth();
-    //    }
-    //}
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.14289942, g: 0.104792826, b: 0.17914063, a: 1}
+  m_IndirectSpecularColor: {r: 0.11545079, g: 0.08275888, b: 0.14546648, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11476,8 +11476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popSoundPrefab: {fileID: 2524370790569887204, guid: f2455969c25131c4d87b29cd7bda4098, type: 3}
   xSpeed: 10
-  jumpspeed: 10
-  downaccel: 0.75
   smokePrefab: {fileID: 567883490079488278, guid: 4d6c222659a38f842ba5829a1e899ab2, type: 3}
   SpeedEffectPrefab: {fileID: 4727921770975972085, guid: 2441c198d32ad49419e7fb9713c6c206, type: 3}
   theanimator: {fileID: 508289675}
@@ -14261,7 +14259,7 @@ Behaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866212927}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &1866212929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14269,7 +14267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866212927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb879eb08cd3584a9ec53901e83be1e, type: 3}
   m_Name: 
@@ -14294,7 +14292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866212927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00db858c1f8ff90478dad0aa1bac9a2c, type: 3}
   m_Name: 

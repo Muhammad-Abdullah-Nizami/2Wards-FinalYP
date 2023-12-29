@@ -45,7 +45,7 @@ public class PresentationScript : MonoBehaviour
         {
             //if (actualscriptinstance != null)
             //{
-                actualscriptinstance.MoveLeft();
+                //actualscriptinstance.MoveLeft();
                 Debug.Log("SwipeLeft Gesture Detected");
             //}
             //else
@@ -57,7 +57,7 @@ public class PresentationScript : MonoBehaviour
         {
             //if (actualscriptinstance != null)
             //{
-                actualscriptinstance.MoveRight();
+                //actualscriptinstance.MoveRight();
                 Debug.Log("SwipeRight Gesture Detected");
             //}
             //else
