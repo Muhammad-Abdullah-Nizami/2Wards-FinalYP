@@ -314,7 +314,7 @@ public class actualscript : MonoBehaviour
 
         //}
 
-        if (Input.GetKeyDown("d") && !dKeyPressed)
+        if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow) && !dKeyPressed)
         {
 
 
@@ -333,14 +333,14 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp("d"))
+        if (Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.RightArrow))
         {
             dKeyPressed = false;
             theanimator.SetTrigger("sprint");
 
         }
 
-        if (Input.GetKeyDown("a") && !aKeyPressed)
+        if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow) && !aKeyPressed)
         {
 
             aKeyPressed = true;
@@ -360,7 +360,7 @@ public class actualscript : MonoBehaviour
             theanimator.SetTrigger("sprint");
         }
 
-        if (Input.GetKeyUp("a"))
+        if (Input.GetKeyUp("a") || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             aKeyPressed = false;
             theanimator.SetTrigger("sprint");
@@ -404,14 +404,14 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("s"))
+        if (Input.GetButtonDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
         {
             theanimator.SetTrigger("roll");
         }
 
         if (IsGrounded())
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 isHighJumping = false;
                 Jump();
