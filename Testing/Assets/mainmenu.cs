@@ -100,8 +100,16 @@ public class mainmenu : MonoBehaviour
     private void ShowScoreOnGameOver()
     {
         //Debug.Log("Score::" + ScoreManager.CountedScoretoDisplay);
-        ScoreCount.text = "Your Score: " +ScoreManager.CountedScoretoDisplay;
-        HighScoreCount.text = "HIGH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
+        //ScoreCount.text = "Your Score: " +ScoreManager.CountedScoretoDisplay;
+        if (ScoreCount != null)
+        {
+            ScoreCount.text = "Your Score: " + ScoreManager.CountedScoretoDisplay;
+        }
+        //HighScoreCount.text = "HIGH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
+        if (HighScoreCount != null)
+        {
+            HighScoreCount.text = "HIGH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
+        }
 
     }
 

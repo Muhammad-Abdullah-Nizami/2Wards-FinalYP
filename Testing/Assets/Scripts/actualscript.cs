@@ -26,6 +26,8 @@ public class actualscript : MonoBehaviour
     public Rigidbody bodyrigid;
     public Vector3 _velocity;
 
+    public float XtempVel;
+
     public int abilitycounter = 1000;
     public int coinscounter = 0;
     private float timer = 0.0f;
@@ -44,7 +46,7 @@ public class actualscript : MonoBehaviour
     public bool spacebuttonpressed = false;
     public bool jumpges;
 
-    private GestureListener gesturelistenerscriptinstance;
+    
     
 
 
@@ -52,34 +54,17 @@ public class actualscript : MonoBehaviour
     void Start()
     {
         ScoreManager.GameHasEnded = false;
-        FindGLScript();
+        
         _velocity = new Vector3(0, 0, 8);
 
     }
 
-    void FindGLScript()
-    {
-        GameObject gesturelistenerObject = GameObject.Find("KCamera");
-        if (gesturelistenerObject != null)
-        {
-            gesturelistenerscriptinstance = gesturelistenerObject.GetComponent<GestureListener>();
-
-            if (gesturelistenerscriptinstance == null)
-            {
-                Debug.LogError("gesturelistenerscript component not found on the specified GameObject.");
-            }
-        }
-        else
-        {
-            Debug.LogError("GameObject with gesturelistenerscript not found.");
-        }
-    }
+    
 
     public void counterincrease()
     {
         abilitycounter++;
-        Debug.Log("Ability counter icreased");
-        Debug.Log(abilitycounter);
+        Debug.Log("Ability counter icreased" + abilitycounter);
     }
 
     public void Coincounterincrease()
@@ -139,6 +124,9 @@ public class actualscript : MonoBehaviour
     {
         if (isHighJumping)
         {
+
+            //_velocity = new Vector3(0, 35, 0);
+
             _velocity.y = 35f; // Adjust the value for high jump
             theanimator.SetTrigger("highjump");
         }
@@ -149,6 +137,11 @@ public class actualscript : MonoBehaviour
         }
 
         
+    }
+
+    void RestoreOriginalXVelocity()
+    {
+        _velocity.x = XtempVel;
     }
 
     bool IsGrounded()
@@ -386,7 +379,7 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("e") || gesturelistenerscriptinstance.IsSwipeUp())
+        if (Input.GetButtonDown("e"))
         {
 
             if (abilitycounter > 0)
@@ -411,7 +404,7 @@ public class actualscript : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("s") || gesturelistenerscriptinstance.isSquat())
+        if (Input.GetButtonDown("s"))
         {
             theanimator.SetTrigger("roll");
         }
@@ -444,6 +437,8 @@ public class actualscript : MonoBehaviour
             if (isHighJumping)
             {
                 _velocity.y -= 0.25f;
+
+                
             }
 
             else
