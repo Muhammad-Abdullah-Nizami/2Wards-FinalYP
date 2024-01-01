@@ -79,7 +79,7 @@ public class actualscript : MonoBehaviour
 
     void Update()
     {
-        astroposition=transform.position;
+        astroposition =transform.position;
     }
 
     void slowspeedinc()
@@ -105,14 +105,12 @@ public class actualscript : MonoBehaviour
     void FixedUpdate()
     {
 
-
         inputhandling();
         Move();
-        
+
         theanimator.SetTrigger("sprint");
         slowspeedinc();
         bodyrigid.velocity = _velocity;
-
     }
 
     
@@ -466,7 +464,7 @@ public class actualscript : MonoBehaviour
             Debug.Log("Collision!");
             _velocity = new Vector3(0, 0, 0);
             theanimator.SetTrigger("fall");
-            Invoke("Loadgameover", 1f);
+            Invoke("Loadgameover", 2f);
             
         }
     }
