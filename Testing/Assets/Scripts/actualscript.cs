@@ -26,6 +26,8 @@ public class actualscript : MonoBehaviour
     public Rigidbody bodyrigid;
     public Vector3 _velocity;
 
+    public bool movementallowed = true;
+
     public float XtempVel;
 
     public int abilitycounter = 1000;
@@ -313,141 +315,144 @@ public class actualscript : MonoBehaviour
         //    }
 
         //}
-
-        if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow) && !dKeyPressed)
+        if (movementallowed == true)
         {
 
 
-            dKeyPressed = true;
-            theanimator.SetTrigger("rightstep");
-
-            if (xMovement == 0)
+            if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow) && !dKeyPressed)
             {
-                xMovement = 2.5f;
-            }
-            else if (xMovement == -2.5f)
-            {
-                xMovement = 0f;
-            }
-            theanimator.SetTrigger("sprint");
-
-        }
-
-        if (Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            dKeyPressed = false;
-            theanimator.SetTrigger("sprint");
-
-        }
-
-        if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow) && !aKeyPressed)
-        {
-
-            aKeyPressed = true;
-            theanimator.SetTrigger("leftstep");
-            if (xMovement == 0)
-            {
-                xMovement = -2.5f;
 
 
-            }
-            else if (xMovement == 2.5f)
-            {
-                xMovement = 0f;
+                dKeyPressed = true;
+                theanimator.SetTrigger("rightstep");
 
-
-            }
-            theanimator.SetTrigger("sprint");
-        }
-
-        if (Input.GetKeyUp("a") || Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            aKeyPressed = false;
-            theanimator.SetTrigger("sprint");
-
-        }
-
-        if (Input.GetButtonDown("f"))
-        {
-            if (abilitycounter>0)
-            {
-                IsObstacleInFront();
-                abilitycounter--;
-                Debug.Log("after pressing F "+ abilitycounter);
-
-            }
-
-        }
-
-        if (Input.GetButtonDown("e"))
-        {
-
-            if (abilitycounter > 0)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, 15.0f))
+                if (xMovement == 0)
                 {
-                    // Check if hit the rocket
-                    if (hit.collider.gameObject.tag == "moveleftobstacle")
-                    {
-                        hit.collider.gameObject.GetComponent<Animator>().SetTrigger("takeoff");
-                        Debug.Log("Animation played");
-                    }
-                    //takeoff();
+                    xMovement = 2.5f;
+                }
+                else if (xMovement == -2.5f)
+                {
+                    xMovement = 0f;
+                }
+                theanimator.SetTrigger("sprint");
 
-                    //IsObstacleMoveable();
+            }
+
+            if (Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                dKeyPressed = false;
+                theanimator.SetTrigger("sprint");
+
+            }
+
+            if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow) && !aKeyPressed)
+            {
+
+                aKeyPressed = true;
+                theanimator.SetTrigger("leftstep");
+                if (xMovement == 0)
+                {
+                    xMovement = -2.5f;
+
+
+                }
+                else if (xMovement == 2.5f)
+                {
+                    xMovement = 0f;
+
+
+                }
+                theanimator.SetTrigger("sprint");
+            }
+
+            if (Input.GetKeyUp("a") || Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                aKeyPressed = false;
+                theanimator.SetTrigger("sprint");
+
+            }
+
+            if (Input.GetButtonDown("f"))
+            {
+                if (abilitycounter > 0)
+                {
+                    IsObstacleInFront();
                     abilitycounter--;
-                    Debug.Log("after pressing E " + abilitycounter);
+                    Debug.Log("after pressing F " + abilitycounter);
+
                 }
 
             }
 
-        }
-
-        if (Input.GetButtonDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            theanimator.SetTrigger("roll");
-        }
-
-        if (IsGrounded())
-        {
-            if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetButtonDown("e"))
             {
-                isHighJumping = false;
-                Jump();
-                //_velocity.y = 10f;
-                //theanimator.SetTrigger("jump");
+
+                if (abilitycounter > 0)
+                {
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 15.0f))
+                    {
+                        // Check if hit the rocket
+                        if (hit.collider.gameObject.tag == "moveleftobstacle")
+                        {
+                            hit.collider.gameObject.GetComponent<Animator>().SetTrigger("takeoff");
+                            Debug.Log("Animation played");
+                        }
+                        //takeoff();
+
+                        //IsObstacleMoveable();
+                        abilitycounter--;
+                        Debug.Log("after pressing E " + abilitycounter);
+                    }
+
+                }
+
             }
 
-            else if (Input.GetButtonDown("x"))
+            if (Input.GetButtonDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
             {
-                // High jump
-                isHighJumping = true;
-                Jump();
+                theanimator.SetTrigger("roll");
+            }
+
+            if (IsGrounded())
+            {
+                if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    isHighJumping = false;
+                    Jump();
+                    //_velocity.y = 10f;
+                    //theanimator.SetTrigger("jump");
+                }
+
+                else if (Input.GetButtonDown("x"))
+                {
+                    // High jump
+                    isHighJumping = true;
+                    Jump();
+                }
+                else
+                {
+
+                    _velocity.y = 0f;
+
+                }
             }
             else
             {
-                
-                _velocity.y = 0f;
-                
+                if (isHighJumping)
+                {
+                    _velocity.y -= 0.25f;
+
+
+                }
+
+                else
+                {
+                    _velocity.y -= 0.75f;
+                }
+
             }
         }
-        else
-        {
-            if (isHighJumping)
-            {
-                _velocity.y -= 0.25f;
-
-                
-            }
-
-            else
-            {
-                _velocity.y -= 0.75f;
-            }
-            
-        }
-
 
 
     }
@@ -456,11 +461,12 @@ public class actualscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))
         {
+            movementallowed = false;
             ScoreManager.GameHasEnded = true;
             Debug.Log("Collision!");
             _velocity = new Vector3(0, 0, 0);
             theanimator.SetTrigger("fall");
-            Invoke("Loadgameover", 2f);
+            Invoke("Loadgameover", 1f);
             
         }
     }

@@ -227,7 +227,7 @@ public class gameflow : MonoBehaviour
             spawnnightObstacle();
         }
         nextTileSpawn.z += 30;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(spawnTile());
         ////yield return new WaitForSeconds(6); // main path spawn krne ka wait time
         ////Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
