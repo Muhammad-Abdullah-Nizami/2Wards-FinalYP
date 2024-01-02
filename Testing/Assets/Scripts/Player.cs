@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            actualScriptInstance.theanimator.SetTrigger("fall");
             actualScriptInstance._velocity = new Vector3(0, 0, 0);
             Invoke("Loadgameover", 1f);
 
