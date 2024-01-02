@@ -35,7 +35,7 @@ public class actualscript : MonoBehaviour
     public int coinscounter = 0;
     private float timer = 0.0f;
     private float speed = 8.0f;
-
+    
 
     //jumpingabilitystuff
     bool isHighJumping = false;

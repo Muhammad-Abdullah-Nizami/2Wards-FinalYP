@@ -21,7 +21,6 @@ public class mainmenu : MonoBehaviour
     public Text ScoreCount;
     public Text HighScoreCount;
     
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -134,4 +133,6 @@ public class mainmenu : MonoBehaviour
 
 
     //}
+
+  
 }
