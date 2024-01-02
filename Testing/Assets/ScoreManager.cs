@@ -63,7 +63,7 @@ public class ScoreManager : MonoBehaviour
         // Update the UI Text element with the current score
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + Mathf.RoundToInt(score);
+            scoreText.text = " " + Mathf.RoundToInt(score);
             CountedScoretoDisplay = Mathf.RoundToInt(score);
 
         }
