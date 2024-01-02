@@ -369,7 +369,7 @@ public class gameflow : MonoBehaviour
 
             else if (randAbility==3)
             {
-                nextO2spawn.y = 0.6f;
+                nextO2spawn.y = 0.5f;
                 Instantiate(abilityobject, nextO2spawn, abilityobject.rotation);
             }
 

@@ -49,8 +49,7 @@ public class actualscript : MonoBehaviour
     public bool spacebuttonpressed = false;
     public bool jumpges;
 
-    
-    
+    private Coins Coinsscriptinstance;
 
 
 
@@ -59,10 +58,11 @@ public class actualscript : MonoBehaviour
         ScoreManager.GameHasEnded = false;
         
         _velocity = new Vector3(0, 0, 8);
+        functionbangaya();
 
     }
 
-    
+
 
     public void counterincrease()
     {
@@ -70,12 +70,12 @@ public class actualscript : MonoBehaviour
         Debug.Log("Ability counter icreased" + abilitycounter);
     }
 
-    public void Coincounterincrease()
-    {
-        coinscounter++;
-        Debug.Log("Coin counter icreased");
-        Debug.Log(coinscounter);
-    }
+    //public void Coincounterincrease()
+    //{
+    //    coinscounter++;
+    //    Debug.Log("Coin counter icreased");
+    //    Debug.Log(coinscounter);
+    //}
 
 
     void Update()
@@ -215,7 +215,24 @@ public class actualscript : MonoBehaviour
         hit.collider.transform.position = Vector3.MoveTowards(obstaclePosition, targetPosition, moveSpeed * Time.deltaTime);
     }
 
+    void functionbangaya()
+    {
+        GameObject CoinsscriptObject = GameObject.Find("Coins");
+        if (CoinsscriptObject != null)
+        {
+            Coinsscriptinstance = CoinsscriptObject.GetComponent<Coins>();
 
+
+            if (Coinsscriptinstance == null)
+            {
+                Debug.LogError("abilityscript component not found on the specified GameObject.");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject with abilityscript not found.");
+        }
+    }
 
     //original
     //void IsObstacleMoveable()
@@ -423,12 +440,12 @@ public class actualscript : MonoBehaviour
                     //theanimator.SetTrigger("jump");
                 }
 
-                else if (Input.GetButtonDown("x") && abilitycounter>0)
+                else if (Input.GetButtonDown("x") && Coinsscriptinstance.coins>=10)
                 {
                     // High jump
                     isHighJumping = true;
                     Jump();
-                    abilitycounter--;
+                    Coinsscriptinstance.coins = Coinsscriptinstance.coins - 10;
                 }
                 else
                 {

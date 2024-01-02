@@ -9,7 +9,7 @@ public class Coins : MonoBehaviour
     public Text AbilityText;
     public Text coinText;
     public actualscript actualscriptinstance;
-    private int coins = 0;
+    public int coins = 0;
     private int abilityammo = 0;
 
 

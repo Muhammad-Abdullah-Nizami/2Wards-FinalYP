@@ -9,7 +9,7 @@ public class abilityscript : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 5, 0);
+        //GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 5, 0);
         functionbangaya();
         functionbangayatwo();
     }

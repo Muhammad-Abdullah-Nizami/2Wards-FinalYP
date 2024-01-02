@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.15278304, g: 0.10860097, b: 0.18152463, a: 1}
+  m_IndirectSpecularColor: {r: 0.06030772, g: 0.04279749, b: 0.09067627, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11341,7 +11341,9 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tFrom animation clip 'fall'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -14162,7 +14164,7 @@ MonoBehaviour:
   spawnCount: 3
   invisiObjLength: 6
   O2obj: {fileID: 5635780967380026300, guid: a95f3a237d929a74c914809efa0432c5, type: 3}
-  abilityobject: {fileID: 6048812034194615270, guid: 0a56642a5dbcc8245a26b8bbf45985c5, type: 3}
+  abilityobject: {fileID: 8878269857333092889, guid: 4b4e6d31bd330de4f836652f57de734e, type: 3}
   coins: {fileID: 5847782181229597461, guid: 7e87ba38cf8e9e54db28da6ce8048666, type: 3}
 --- !u!4 &1703708104
 Transform:
