@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
                     // Update the Highscore UI Text element
                     if (Highscore != null)
                     {
-                        Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+                        Highscore.text = "Best: " + Mathf.RoundToInt(highScoreCount);
                         
                     }
                 }
@@ -86,7 +86,7 @@ public class ScoreManager : MonoBehaviour
         // Update the Highscore UI Text element
         if (Highscore != null)
         {
-            Highscore.text = "High Score: " + Mathf.RoundToInt(highScoreCount);
+            Highscore.text = "Best: " + Mathf.RoundToInt(highScoreCount);
             HighscoretoDisplay = Mathf.RoundToInt(highScoreCount);
         }
     }
