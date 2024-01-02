@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -422,11 +423,12 @@ public class actualscript : MonoBehaviour
                     //theanimator.SetTrigger("jump");
                 }
 
-                else if (Input.GetButtonDown("x"))
+                else if (Input.GetButtonDown("x") && abilitycounter>0)
                 {
                     // High jump
                     isHighJumping = true;
                     Jump();
+                    abilitycounter--;
                 }
                 else
                 {
