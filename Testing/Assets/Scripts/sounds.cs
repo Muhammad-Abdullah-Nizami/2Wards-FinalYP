@@ -9,7 +9,7 @@ public class sounds : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             AudioSource jumpSoundInstance = Instantiate(jumpSoundPrefab); 
             jumpSoundInstance.Play(); 
