@@ -81,6 +81,12 @@ public class actualscript : MonoBehaviour
     void Update()
     {
         astroposition =transform.position;
+        inputhandling();
+        Move();
+
+        
+        slowspeedinc();
+        bodyrigid.velocity = _velocity;
     }
 
     void slowspeedinc()
@@ -105,13 +111,7 @@ public class actualscript : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        inputhandling();
-        Move();
-
         theanimator.SetTrigger("sprint");
-        slowspeedinc();
-        bodyrigid.velocity = _velocity;
     }
 
     
