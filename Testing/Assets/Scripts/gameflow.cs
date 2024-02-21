@@ -221,14 +221,16 @@ public class gameflow : MonoBehaviour
     //}
     IEnumerator spawnTile()
     {
-        Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+        Instantiate(tileObj, nextTileSpawn, tileObj.rotation); //Quaternion rotation = Quaternion.Euler(0, 45, 0);
         for (int i = 0; i < 4; i++)
         {
-            spawnnightObstacle();
+            spawnObstacle();
         }
         nextTileSpawn.z += 30;
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(spawnTile());
+
+
         ////yield return new WaitForSeconds(6); // main path spawn krne ka wait time
         ////Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
         ////nextTileSpawn.z += 30;
@@ -279,59 +281,7 @@ public class gameflow : MonoBehaviour
 
     
 
-    //void spawndayObstacle()
-    //{
-    //    nextTconeSpawn = nextTileSpawn;
-    //    float[] possibleXValues = new float[] { -2.5f, 0f, 2.5f };
-    //    float randX = possibleXValues[Random.Range(0, possibleXValues.Length)];
-    //    nextTconeSpawn.x = randX;
-
-    //    float[] possibleZValues = new float[] { -10f,-6.5f, -5f, 3f, 0f, 5f, 6.5f, 10f, -15f, 15f};
-    //    float[] availableZValues = possibleZValues.Except(usedZPositions).ToArray();
-
-    //    // Check if there are any available z positions left.
-    //    if (availableZValues.Length == 0)
-    //    {
-    //        // All z positions have been used.
-    //        usedZPositions.Clear();
-    //        availableZValues = possibleZValues; // Use all possible z values again.
-    //    }
-
-    //    float randZ = availableZValues[Random.Range(0, availableZValues.Length)];
-
-    //    // Add the newly used z position to the list.
-    //    usedZPositions.Add(randZ);
-
-    //    //float randZ = Random.Range(-10f, 10);
-    //    nextTconeSpawn.z = nextTconeSpawn.z + randZ;
-
-    //    //NOTE FOR AYMAN, ADD RANDOM ARRAY FILLED WITH GOOD VALUES INSTEAD OF THIS RANDOM RANGE.
-
-
-    //    int randObstacle = Random.Range(0, 3);
-
-    //    if (randObstacle == 0)
-    //    {
-    //        nextTconeSpawn.y = 0.27f;
-    //        Instantiate(leftsign, nextTconeSpawn, leftsign.rotation);
-    //    }
-    //    else if (randObstacle == 1)
-    //    {
-    //        nextTconeSpawn.y = 0.53f;
-    //        Instantiate(rightsign, nextTconeSpawn, rightsign.rotation);
-    //    }
-    //    else if (randObstacle == 2)
-    //    {
-    //        nextTconeSpawn.y = 0.53f;
-    //        Instantiate(targetsign, nextTconeSpawn, targetsign.rotation);
-    //    }
-
-        
-
-    //}
-
-
-    void spawnnightObstacle()
+    void spawnObstacle()
     {
 
         //THIS ALL FOR O2 SPAWNING
