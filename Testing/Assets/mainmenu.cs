@@ -13,14 +13,16 @@ public class mainmenu : MonoBehaviour
 
 
     private ScoreManager scoremanagerscriptinstance;
-
+    private actualscript getting_calorie_count;
     //variable for pause menu
     public static bool GameIspaused = false;
     public GameObject PauseMenuUI;
     //variable to show highscore on gameover ui
     public Text ScoreCount;
     public Text HighScoreCount;
-    
+    public Text CaloriesCount;
+    public Animator mainMenuAnimator;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -87,6 +89,7 @@ public class mainmenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        mainMenuAnimator.SetTrigger("moonanimation");
         Debug.Log("LOADING GAME...");
     }
 
@@ -107,32 +110,37 @@ public class mainmenu : MonoBehaviour
         //HighScoreCount.text = "HIGH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
         if (HighScoreCount != null)
         {
-            HighScoreCount.text = "HIGH SCORE " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
+            HighScoreCount.text = "HIGH SCORE: " + Mathf.RoundToInt(ScoreManager.HighscoretoDisplay);
+        }
+
+        if (CaloriesCount != null)
+        {
+            CaloriesCount.text = "Calories:  " + actualscript.calculate;
         }
 
     }
+   
+
+        //void functionbangaya()
+        //{
+        //    GameObject scoremanagerscriptObject = GameObject.Find("Score");
+        //    if (scoremanagerscriptObject != null)
+        //    {
+        //        scoremanagerscriptinstance = scoremanagerscriptObject.GetComponent<ScoreManager>();
 
 
-    //void functionbangaya()
-    //{
-    //    GameObject scoremanagerscriptObject = GameObject.Find("Score");
-    //    if (scoremanagerscriptObject != null)
-    //    {
-    //        scoremanagerscriptinstance = scoremanagerscriptObject.GetComponent<ScoreManager>();
+        //        if (scoremanagerscriptinstance == null)
+        //        {
+        //            Debug.LogError("scoremanagerscript component not found on the specified GameObject.");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("GameObject with scoremanagerscript not found.");
+        //    }
 
 
-    //        if (scoremanagerscriptinstance == null)
-    //        {
-    //            Debug.LogError("scoremanagerscript component not found on the specified GameObject.");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("GameObject with scoremanagerscript not found.");
-    //    }
+        //}
 
 
-    //}
-
-  
-}
+    }

@@ -265,16 +265,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155877470756658590, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 68c2eb98cc489f647bcad9b6e32904d9, type: 3}
+    - target: {fileID: 5155877470756658590, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7460481540991910286, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
       propertyPath: m_Name
       value: environment (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7460481540991910286, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545812254745515320, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: stoneTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545812254745515320, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: rocketTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545812254745515320, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: satelliteTransform
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7263859514566456314, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+    - {fileID: 7076907059165851338, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
@@ -326,10 +348,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4142575554358228712, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.78
+      objectReference: {fileID: 0}
     - target: {fileID: 5155877470756658590, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 68c2eb98cc489f647bcad9b6e32904d9, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5155877470756658590, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -349,6 +375,18 @@ PrefabInstance:
     - target: {fileID: 7460481540991910286, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
       propertyPath: m_Name
       value: environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545812254745515320, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: stoneTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545812254745515320, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: rocketTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545812254745515320, guid: bcc90e01aada8074b94f2143f4c416ef, type: 3}
+      propertyPath: satelliteTransform
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

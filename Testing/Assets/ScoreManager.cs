@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class ScoreManager : MonoBehaviour
     public static bool GameHasEnded = false;
     public static float CountedScoretoDisplay = 0;
     public static float HighscoretoDisplay = 0;
+
+   
+
 
 
 
@@ -106,4 +110,6 @@ public class ScoreManager : MonoBehaviour
         LoadHighScore();
         Time.timeScale = 1f; // Resume the scoring
     }
+
 }
+

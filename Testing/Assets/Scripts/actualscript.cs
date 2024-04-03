@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
@@ -35,6 +36,7 @@ public class actualscript : MonoBehaviour
     public int coinscounter = 0;
     private float timer = 0.0f;
     private float speed = 8.0f;
+
     
 
     //jumpingabilitystuff
@@ -48,6 +50,13 @@ public class actualscript : MonoBehaviour
     public ParticleSystem abeffect;
     public bool spacebuttonpressed = false;
     public bool jumpges;
+
+    //variables for calculating calories
+    private static float jump_counter = 0;
+    private static float crouch_counter = 0;
+    private static float lane_counter = 0;
+    public static double calculate;
+    //int weight = 50;
 
     private Coins Coinsscriptinstance;
 
@@ -338,7 +347,8 @@ public class actualscript : MonoBehaviour
             if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow) && !dKeyPressed)
             {
 
-
+                lane_counter++;
+                Debug.Log(lane_counter);
                 dKeyPressed = true;
                 theanimator.SetTrigger("rightstep");
 
@@ -363,7 +373,8 @@ public class actualscript : MonoBehaviour
 
             if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow) && !aKeyPressed)
             {
-
+                lane_counter++;
+                Debug.Log(lane_counter);
                 aKeyPressed = true;
                 theanimator.SetTrigger("leftstep");
                 if (xMovement == 0)
@@ -428,12 +439,16 @@ public class actualscript : MonoBehaviour
             if (Input.GetButtonDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 theanimator.SetTrigger("roll");
+                crouch_counter++;
+                Debug.Log(crouch_counter);
             }
 
             if (IsGrounded())
             {
                 if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
                 {
+                    jump_counter++;
+                    Debug.Log(jump_counter);
                     isHighJumping = false;
                     Jump();
                     //_velocity.y = 10f;
@@ -481,6 +496,8 @@ public class actualscript : MonoBehaviour
             movementallowed = false;
             ScoreManager.GameHasEnded = true;
             Debug.Log("Collision!");
+            calculate = calculate_burn_calories();
+            Debug.Log("calories : " + calculate);
             _velocity = new Vector3(0, 0, 0);
             theanimator.SetTrigger("fall");
             Invoke("Loadgameover", 2f);
@@ -504,4 +521,18 @@ public class actualscript : MonoBehaviour
         _velocity = new Vector3(0, 0, 0);
     }
 
+    double calculate_burn_calories()
+    {
+        float weight = 50;
+        float met_jump = 4.0f;
+        float met_crouch = 2.0f;
+        float met_lane = 1.5f;
+        double calculating_crouch = met_crouch * crouch_counter;
+        double calculating_jump = met_jump * jump_counter;
+        double calculating_lane = met_lane * lane_counter;
+        double calculating_all_three = calculating_crouch + calculating_jump + calculating_lane;
+        double calculate = Math.Round((weight * calculating_all_three) / 60); // dividing by 60 to get value in seconds
+        return calculate;
+
+    }
 }
