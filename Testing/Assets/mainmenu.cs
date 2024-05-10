@@ -22,6 +22,7 @@ public class mainmenu : MonoBehaviour
     public Text HighScoreCount;
     public Text CaloriesCount;
     public Animator mainMenuAnimator;
+    public static string weightt; //for calories
 
     private void Update()
     {
@@ -47,6 +48,14 @@ public class mainmenu : MonoBehaviour
         }
 
 
+    }
+
+    public void get_weight(string w)
+    {
+        weightt = w;
+        
+        Debug.Log(weightt);
+        
     }
     public void playgame()
     {

@@ -59,7 +59,7 @@ public class actualscript : MonoBehaviour
     //int weight = 50;
 
     private Coins Coinsscriptinstance;
-
+     // string variable to get weight of user for calorie burn count
 
 
     void Start()
@@ -493,6 +493,7 @@ public class actualscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))
         {
+            
             movementallowed = false;
             ScoreManager.GameHasEnded = true;
             Debug.Log("Collision!");
@@ -521,17 +522,18 @@ public class actualscript : MonoBehaviour
         _velocity = new Vector3(0, 0, 0);
     }
 
+
     double calculate_burn_calories()
     {
-        float weight = 50;
+        
         float met_jump = 4.0f;
         float met_crouch = 2.0f;
         float met_lane = 1.5f;
         double calculating_crouch = met_crouch * crouch_counter;
-        double calculating_jump = met_jump * jump_counter;
+        double calculating_jump = met_jump * jump_counter; 
         double calculating_lane = met_lane * lane_counter;
         double calculating_all_three = calculating_crouch + calculating_jump + calculating_lane;
-        double calculate = Math.Round((weight * calculating_all_three) / 60); // dividing by 60 to get value in seconds
+        double calculate = Math.Round((double.Parse(mainmenu.weightt) * calculating_all_three) / 60); // dividing by 60 to get value in seconds
         return calculate;
 
     }
