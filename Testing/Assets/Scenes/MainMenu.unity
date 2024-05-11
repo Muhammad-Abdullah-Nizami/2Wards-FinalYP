@@ -1194,11 +1194,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 174680297}
-  m_Father: {fileID: 2091972903}
+  m_Father: {fileID: 1126694723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192, y: -96}
+  m_AnchoredPosition: {x: 192.00014, y: -95.99981}
   m_SizeDelta: {x: 256.3193, y: 67.9154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255760137
@@ -1617,6 +1617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 419886487}
   - component: {fileID: 419886488}
+  - component: {fileID: 419886489}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1691,12 +1692,39 @@ MonoBehaviour:
   m_HandleRect: {fileID: 35971355}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 419886489}
+        m_TargetAssemblyTypeName: sounds, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &419886489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419886486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d9c467a7b95d468d8630cbba7e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSoundPrefab: {fileID: 0}
+  popSoundPrefab: {fileID: 0}
+  soundSlider: {fileID: 419886488}
 --- !u!1 &515388812
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,7 +3069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168219418882516, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1393570854162978, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_IsActive
@@ -3061,7 +3089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761323016251552, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1821154087863372, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_IsActive
@@ -3099,6 +3127,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.48235297
       objectReference: {fileID: 0}
+    - target: {fileID: 114299506127318332, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299506127318332, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114450778470789158, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_Text
       value: 
@@ -3123,11 +3159,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114578578985911172, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114578578985911172, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 14
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578578985911172, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578578985911172, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114610395145963938, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       propertyPath: m_Color.b
@@ -3344,6 +3388,9 @@ PrefabInstance:
       addedObject: {fileID: 419886487}
     - targetCorrespondingSourceObject: {fileID: 224344996794932848, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 255760136}
+    - targetCorrespondingSourceObject: {fileID: 224344996794932848, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 38069768}
     - targetCorrespondingSourceObject: {fileID: 224441150932260086, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       insertIndex: -1
@@ -3354,9 +3401,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 224441150932260086, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1735653609}
-    - targetCorrespondingSourceObject: {fileID: 224441150932260086, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 255760136}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 271ac83bd0e2add4e93209a4adb073ca, type: 3}
 --- !u!1 &1313665028

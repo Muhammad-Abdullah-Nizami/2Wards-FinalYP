@@ -22,7 +22,7 @@ public class mainmenu : MonoBehaviour
     public Text HighScoreCount;
     public Text CaloriesCount;
     public Animator mainMenuAnimator;
-    public static string weightt; //for calories
+    public static string weightt ; //for calories
 
     private void Update()
     {
@@ -55,7 +55,10 @@ public class mainmenu : MonoBehaviour
         weightt = w;
         
         Debug.Log(weightt);
-        
+        PlayerPrefs.SetString("weight", weightt);
+
+        PlayerPrefs.Save();
+
     }
     public void playgame()
     {
@@ -152,4 +155,4 @@ public class mainmenu : MonoBehaviour
         //}
 
 
-    }
+}
