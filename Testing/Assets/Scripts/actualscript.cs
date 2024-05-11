@@ -37,7 +37,7 @@ public class actualscript : MonoBehaviour
     private float timer = 0.0f;
     private float speed = 8.0f;
 
-    
+
 
     //jumpingabilitystuff
     bool isHighJumping = false;
@@ -59,13 +59,13 @@ public class actualscript : MonoBehaviour
     //int weight = 50;
 
     private Coins Coinsscriptinstance;
-     // string variable to get weight of user for calorie burn count
+    // string variable to get weight of user for calorie burn count
 
 
     void Start()
     {
         ScoreManager.GameHasEnded = false;
-        
+
         _velocity = new Vector3(0, 0, 8);
         functionbangaya();
 
@@ -89,11 +89,11 @@ public class actualscript : MonoBehaviour
 
     void Update()
     {
-        astroposition =transform.position;
+        astroposition = transform.position;
         inputhandling();
         Move();
 
-        
+
         slowspeedinc();
         bodyrigid.velocity = _velocity;
     }
@@ -123,7 +123,7 @@ public class actualscript : MonoBehaviour
         theanimator.SetTrigger("sprint");
     }
 
-    
+
 
     void Move()
     {
@@ -146,7 +146,7 @@ public class actualscript : MonoBehaviour
             theanimator.SetTrigger("jump");
         }
 
-        
+
     }
 
     void RestoreOriginalXVelocity()
@@ -176,10 +176,10 @@ public class actualscript : MonoBehaviour
 
         if (Physics.Raycast(transform.position + raycastOffset, transform.forward, out hit, rayLength))
         {
-            
+
             if (hit.collider.CompareTag("obstacle"))
             {
-                
+
                 Destroy(hit.collider.gameObject);
                 AudioSource popSoundInstance = Instantiate(popSoundPrefab);
                 popSoundInstance.Play();
@@ -267,7 +267,7 @@ public class actualscript : MonoBehaviour
     {
         float rayLength = 15.0f;
         RaycastHit hit;
-        
+
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, rayLength))
         {
@@ -455,7 +455,7 @@ public class actualscript : MonoBehaviour
                     //theanimator.SetTrigger("jump");
                 }
 
-                else if (Input.GetButtonDown("x") && Coinsscriptinstance.coins>=10)
+                else if (Input.GetButtonDown("x") && Coinsscriptinstance.coins >= 10)
                 {
                     // High jump
                     isHighJumping = true;
@@ -493,16 +493,16 @@ public class actualscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("moveleftobstacle"))
         {
-            
+
             movementallowed = false;
             ScoreManager.GameHasEnded = true;
-            Debug.Log("Collision!");
-            calculate = calculate_burn_calories();
-            Debug.Log("calories : " + calculate);
+            //Debug.Log("Collision!");
+            //calculate = calculate_burn_calories();
+            //Debug.Log("calories : " + calculate);
             _velocity = new Vector3(0, 0, 0);
             theanimator.SetTrigger("fall");
             Invoke("Loadgameover", 2f);
-            
+
         }
     }
 
@@ -525,12 +525,12 @@ public class actualscript : MonoBehaviour
 
     double calculate_burn_calories()
     {
-        
+
         float met_jump = 4.0f;
         float met_crouch = 2.0f;
         float met_lane = 1.5f;
         double calculating_crouch = met_crouch * crouch_counter;
-        double calculating_jump = met_jump * jump_counter; 
+        double calculating_jump = met_jump * jump_counter;
         double calculating_lane = met_lane * lane_counter;
         double calculating_all_three = calculating_crouch + calculating_jump + calculating_lane;
         double calculate = Math.Round((double.Parse(mainmenu.weightt) * calculating_all_three) / 60); // dividing by 60 to get value in seconds
